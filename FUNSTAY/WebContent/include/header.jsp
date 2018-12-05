@@ -65,8 +65,8 @@ if(email==null){
 	
 	<li><a href="./MemberListAction.me">회원목록</a></li>
 	<li><a href="./FAQ_boardList.fa">FAQ 관리</a></li>	
-	<% }%>	
-	<%if(hostCheck==1){%>
+	<% }	
+	else if(hostCheck==1){%>
 	
 	<li><a href="./HostPassCheckAction.ho">숙소 정보 수정</a></li>
 	<li><a href="#">숙소 삭제(없음)</a></li>
