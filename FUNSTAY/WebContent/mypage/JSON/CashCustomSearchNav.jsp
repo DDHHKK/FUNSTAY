@@ -26,7 +26,7 @@ System.out.println(end_searchdate);
 JSONArray arr = new JSONArray();
 
 Class.forName("com.mysql.jdbc.Driver");
-String dbUrl="jdbc:mysql://localhost:3306/funstay";
+String dbUrl="jdbc:mysql://192.168.2.27:3306/funstay";
 String dbUser="root";
 String dbPass="1234";
 Connection con = DriverManager.getConnection(dbUrl,dbUser,dbPass);
