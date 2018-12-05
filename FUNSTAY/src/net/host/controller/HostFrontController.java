@@ -17,6 +17,7 @@ import net.host.action.HostInsertAction;
 import net.host.action.HostJoinAction;
 import net.host.action.HostPageAction;
 import net.host.action.HostPassCheckAction;
+import net.host.action.HostRoomListAction;
 import net.host.action.HostUpdateAction;
 
 
@@ -118,6 +119,15 @@ public class HostFrontController extends HttpServlet{
 			forward.setRedirect(false);
 			forward.setPath("./payment/PaymentForm.jsp");*/
 		} 
+		
+		//호스트 페이지에 호스트가 등록한 숙소 보여주는 list
+		else if(command.equals("/HostRoomList.ho")){
+			action = new HostRoomListAction();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){e.printStackTrace();}
+		}
+		
 		
 		
 		
