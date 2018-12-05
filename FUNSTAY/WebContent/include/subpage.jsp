@@ -12,9 +12,9 @@ if(email==null){
 	alert("로그인이 필요한 서비스 입니다");
 	/* document.getElementById('wrap').style.backgroundColor='#ffffff';
 	document.getElementById('wrap').style.zIndex='999'; */
-	document.getElementById('id01').style.display='block';
+	//document.getElementById('id01').style.display='block';
 	
-	//location.href="./MemberLogin.me";
+	location.href="./Main.me";
 </script>
 <%} else {
 
