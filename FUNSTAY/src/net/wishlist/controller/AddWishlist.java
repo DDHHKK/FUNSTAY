@@ -19,7 +19,7 @@ public class AddWishlist implements Action{
 		String list_name = (String)request.getParameter("list_name");
 		String list_photo = (String)request.getParameter("list_photo");
 		HttpSession session = request.getSession();
-		String member_email = "d";/*(String)session.getAttribute("member_email");*/
+		String member_email = (String)session.getAttribute("member_email");
 		WishlistDAO wdao = new WishlistDAO();
 		int count = wdao.CountWishlist(member_email);
 		ActionForward af = new ActionForward();

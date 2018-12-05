@@ -15,13 +15,13 @@ public class MemberFrontController extends HttpServlet{
 			throws ServletException, IOException{
 		
 		String requestURI = request.getRequestURI();
-		System.out.println("URL ø‰√ª:" + requestURI);
+		System.out.println("URL ÔøΩÔøΩ√ª:" + requestURI);
 		
 		String ContextPath = request.getContextPath();
-		System.out.println("«¡∑Œ¡ß∆Æ ¿Ã∏ß ±Ê¿Ã:"+ContextPath.length()); //>>8¿⁄
+		System.out.println("ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ∆Æ ÔøΩÃ∏ÔøΩ ÔøΩÔøΩÔøΩÔøΩ:"+ContextPath.length()); //>>8ÔøΩÔøΩ
 		String command= requestURI.substring(ContextPath.length());
 		
-		System.out.println("ªÃæ∆ø¬ ∞°ªÛ¿« ¡÷º“:" + command);//>>/*.me
+		System.out.println("ÔøΩÃæ∆øÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩ÷ºÔøΩ:" + command);//>>/*.me
 		
 		
 		ActionForward forward = null;
@@ -55,7 +55,7 @@ public class MemberFrontController extends HttpServlet{
 		}else if(command.equals("/MemberJoinAction2.me")){
 				action = new MemberJoinAction2();
 				try {
-					forward = action.execute(request, 			response);
+					forward = action.execute(request,response);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}	
@@ -83,7 +83,7 @@ else if(command.equals("/MemberLogin.me")){
 		else if(command.equals("/MemberLoginAction2.me")){
 			action = new MemberLoginAction2();
 			try {
-				forward = action.execute(request, 				response);
+				forward = action.execute(request,response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -114,7 +114,7 @@ else if(command.equals("/MemberLogin.me")){
 		else if (command.equals("/MemberLogout.me")) {
 			action = new MemberLogoutAction();
 			try {
-				forward = action.execute(request, response);
+				forward = action.execute(request,response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -126,7 +126,7 @@ else if(command.equals("/MemberLogin.me")){
 		else if (command.equals("/MemberLogout2.me")) {
 			action = new MemberLogoutAction2();
 			try {
-				forward = action.execute(request, 					response);
+				forward = action.execute(request,response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -175,7 +175,7 @@ else if(command.equals("/MemberLogin.me")){
 		else if(command.equals("/MemberSearchAction.me")){
 			action = new MemberSearchAction();
 			try {
-				forward = action.execute(request, 					response);
+				forward = action.execute(request,response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -186,7 +186,7 @@ else if(command.equals("/MemberLogin.me")){
 		else if(command.equals("/MemberSearchAction2.me")){
 			action = new MemberSearchAction2();
 			try {
-				forward = action.execute(request, 					response);
+				forward = action.execute(request,response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -216,7 +216,7 @@ else if(command.equals("/MemberLogin.me")){
 				e.printStackTrace();
 			}
 			
-		//find	æ∆¿Ãµ
+		//find	ÔøΩÔøΩÔøΩÃµÔøΩ
 		} else if(command.equals("/find_id.me")){
 			forward = new ActionForward();
 			forward.setPath("./id_pw_find/FindForm_id.jsp");
@@ -229,7 +229,7 @@ else if(command.equals("/MemberLogin.me")){
 				e.printStackTrace();
 			}
 			
-		//find	∫Òπ–π¯»£
+		//find	ÔøΩÔøΩ–πÔøΩ»£
 		} else if(command.equals("/find_pw.me")){
 			forward = new ActionForward();
 			forward.setPath("./id_pw_find/FindForm_pw.jsp");
@@ -242,7 +242,7 @@ else if(command.equals("/MemberLogin.me")){
 				e.printStackTrace();
 			}			
 			
-		//»∏ø¯¡§∫∏ pass Check	
+		//»∏ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ pass Check	
 		} else if(command.equals("/PassCheckForm.me")){
 			forward = new ActionForward();
 			forward.setPath("./member/passwordCheck.jsp");
@@ -300,7 +300,19 @@ else if(command.equals("/MemberLogin.me")){
 					forward = action.execute(request, response);
 				}catch(Exception e){e.printStackTrace();}
 			}
-	
+			
+			//QnA ÎÇ¥Ïó≠ÌôïÏù∏
+				else if(command.equals("/MemberQNAlist.me")){
+					action = new MemberQnaList();
+					try{
+						forward = action.execute(request, response);
+					}catch(Exception e){e.printStackTrace();}
+				}else if(command.equals("/MemberQNAcontent.me")){
+					action = new MemberQnaContent();
+					try{
+						forward = action.execute(request, response);
+					}catch(Exception e){e.printStackTrace();}
+				}
 		
 			
 		
@@ -311,7 +323,7 @@ else if(command.equals("/MemberLogin.me")){
 		
 		
 		
-		if (forward != null) { // ¿Ãµø«“ ¡§∫∏∞° ¿÷¿∏∏È
+		if (forward != null) { // ÔøΩÃµÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ
 			if (forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
 			} else {
