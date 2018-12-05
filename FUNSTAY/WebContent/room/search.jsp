@@ -238,14 +238,14 @@
 	%>
 	<div align="center">
 <h1> 전체글의 개수 : <%=count%></h1>
-</div>
+</div> 
 
 	<%	for (int i = 0; i < SearchList.size(); i++) {
 		SearchBean sc = (SearchBean) SearchList.get(i); %>
 		<a href="./RoomDetail.sc?num=<%=sc.getHome_num()%>&pageNum=<%=pageNum%>">
 		<table border="1" align="center">
 		<tr><td><a href="./RoomDetail.sc">Home_num</a></td><td><%=sc.getHome_num() %></td></tr>
-		<tr><td>Host_num</td><td><%=sc.getHost_num() %></td></tr>
+		<tr><td>Host_email</td><td><%=sc.getHost_email() %></td></tr>
 		<tr><td>Address</td><td><%=sc.getAddress() %></td></tr>
 		<tr><td>Room_type</td><td><%=sc.getRoom_type() %></td></tr>
 		<tr><td>Price</td><td><%=sc.getPrice() %></td></tr>

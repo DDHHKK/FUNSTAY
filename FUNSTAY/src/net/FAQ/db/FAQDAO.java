@@ -22,17 +22,18 @@ public class FAQDAO {
 	PreparedStatement pstmt = null;
 	String sql = null; 
 
-	private Connection getConnection() throws Exception {
+private Connection getConnection() throws Exception{
+		
+		Connection con = null;
+		// Context ��ü ����
+		Context init = new InitialContext();
+		// DateSource = ��񿬵� �̸� �ҷ�����
+		DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/MysqlDB");
+		// con = DataSource
+		con = ds.getConnection();
 
-		Class.forName("com.mysql.jdbc.Driver");
-
-		String dbUrl = "jdbc:mysql://localhost:3306/funstay";
-		String dbUser = "jspid";
-		String dbPass = "jsppass";
-		con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
 		return con;
 	}
-	
 	public void FAQ_boardInsert(FAQBean fb){
 		ResultSet rs = null;
 		int num = 0;
