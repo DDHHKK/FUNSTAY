@@ -321,7 +321,7 @@ else if(command.equals("/MemberLogin.me")){
 		
 		
 		
-		if (forward != null) { // �̵��� ������ ������
+		if (forward != null) { 
 			if (forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
 			} else {
