@@ -84,7 +84,7 @@ body { font-size: 62.5%; }
 #mycal>div{width:100.1% !important;}
 
 #back_shj{    border-radius: 4%;
-    margin-left: 44%;
+    margin-left: 41%;
     padding: 0.5% 2%;
     font-weight: 500;
     color: #666;
