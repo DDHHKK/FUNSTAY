@@ -16,7 +16,7 @@ public class Wishlist implements Action{
 		// TODO Auto-generated method stub
 		System.out.println("Wishlist execute()");
 		HttpSession session = request.getSession();
-		String member_email = "d";/*(String)session.getAttribute("member_email");*/
+		String member_email = (String)session.getAttribute("member_email");
 		WishlistDAO wdao = new WishlistDAO();
 		List<WishlistBean> Wishlist = wdao.getWishList(member_email);
 		int listcount = wdao.CountWishlist(member_email);
