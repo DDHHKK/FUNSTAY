@@ -20,36 +20,60 @@ $(document).ready(function(){
 }
 	
 </script>
+<!-- 로그인/회원가입 버튼/달력 -->
 <script src="js/login.js"></script>
+
 <!-- id값을 가져오기 위해 객체생성 -->
 <%MemberDAO md = new MemberDAO();
-MemberBean mb = new MemberBean(); %>
+MemberBean mb = new MemberBean(); 
+String email = (String)session.getAttribute("email");
+mb=md.getMember(email);
+int hostCheck = 0;
+hostCheck = (int)session.getAttribute("hostCheck");
+%>
 <section class="sec01_WS">
 <table>
 <tr>
-<td id="pont1_WS"><a href="#">FUNSTAY</a></td>
+<td id="pont1_WS"><a href="./Main.me">FUNSTAY</a></td>
 <td><input type="text" id="text_1_WS" name="search_info" placeholder="검색할 내용을 적으세요">
 <input type="button" value="검색" id="btn_1_WS" onclick="abc111()"></td>
-<td><a href="#">호스트로 등록해보세요</a></td>
-<td><a href="#">도움말</a></td>
+<td><a href="./HostMain.ho">호스트로 등록해보세요</a></td>
+<td><a href="./FAQ_boardList.fa">FAQ</a></td>
 
 <!-- email값이 null이면 로그인과 회원가입이 보이고  null이아니면 사진창이뜨면서 회원닉네임과함께 문구가뜬다 -->
 <%
-String email = (String)session.getAttribute("email");
+
 if(email==null){
 	%>
 <td><button class="btn_remove" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">로그인</button>
 <%
 }else{
 	%>
-	<td><a href="javascript:void(0)" onclick="document.getElementById('light1').style.display='block';document.getElementById('fade1').style.display='block'"><img src="./img/no_profile.png" id="img_1_WS"></a>
+	<td><a href="javascript:void(0)" onclick="document.getElementById('light1').style.display='block';document.getElementById('fade1').style.display='block'"><img src="./img/<%=mb.getProfile_photo()%>" id="img_1_WS"></a>
  <div id="light1" class="white_content_1">
   <div>
   <ul id="list_1_WS">
-	<li><a href="">프로필정보</a></li>
-	<li><a href="">프로필수정</a></li>
-	<li><a href="">예약현황</a></li>
-	<li><a href="">메시지</a></li>
+	<li><a href="./MemberUpdate.me">프로필수정</a></li>
+	<li><a href="./Booking.bo">예약및 결제하기</a></li>
+	<li><a href="./MyReserve.bk">MY RESERVE</a></li>
+	<li><a href="./Wishlist.wi">위시리스트</a></li>
+	<li><a href="./MemberMileage.me">마일리지</a></li>
+	<li><a href="./MemberQNAlist.me">문의하기</a></li>
+	<%
+	}if(email.equals("admin")){
+	%>
+	
+	<li><a href="./MemberListAction.me">회원목록</a></li>
+	<li><a href="./FAQ_boardList.fa">FAQ 관리</a></li>	
+	<% }%>	
+	<%if(hostCheck==1){%>
+	
+	<li><a href="./HostPassCheckAction.ho">숙소 정보 수정</a></li>
+	<li><a href="#">숙소 삭제(없음)</a></li>
+	<li><a href="#">예약 관리(없음)</a></li>
+	<li><a href="./HostCash.ho">MY CASH</a></li>
+	<%} %>
+	
 	<li><a href="./MemberLogout2.me">로그아웃</a></li>
   </ul>
   </div>
@@ -59,9 +83,7 @@ if(email==null){
 </td>
 <%mb=md.getMember(email);%>
 <td><%=mb.getName()%>님 반갑습니다!</td>
-<% 
-}
-%>
+
 
 <!-- 로그인 -->
 <div id="id01" class="modal">
