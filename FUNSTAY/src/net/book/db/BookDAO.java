@@ -84,7 +84,7 @@ public class BookDAO {
 	
 	
 	
-	//완료된 숙소 가져오는 메서드(sql-select문)
+	//완료된 숙소 제목 가져오는 메서드(sql-select문)
     public List<BookBean> BeforeTrip(){
 		
 		Connection con=null;
@@ -99,7 +99,7 @@ public class BookDAO {
                 
 				
 				
-				String sql="select * from booking where now()>check_out";
+				String sql="select room_subject from home";
 				
 				
 		        pstmt=con.prepareStatement(sql);//객체생성
