@@ -15,13 +15,13 @@ public class MemberFrontController extends HttpServlet{
 			throws ServletException, IOException{
 		
 		String requestURI = request.getRequestURI();
-		System.out.println("URL ��û:" + requestURI);
+		//System.out.println("URL ��û:" + requestURI);
 		
 		String ContextPath = request.getContextPath();
-		System.out.println("������Ʈ �̸� ����:"+ContextPath.length()); //>>8��
+		//System.out.println("������Ʈ �̸� ����:"+ContextPath.length()); //>>8��
 		String command= requestURI.substring(ContextPath.length());
 		
-		System.out.println("�̾ƿ� ������ �ּ�:" + command);//>>/*.me
+		//System.out.println("�̾ƿ� ������ �ּ�:" + command);//>>/*.me
 		
 		
 		ActionForward forward = null;
