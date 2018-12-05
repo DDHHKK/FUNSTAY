@@ -300,7 +300,19 @@ else if(command.equals("/MemberLogin.me")){
 					forward = action.execute(request, response);
 				}catch(Exception e){e.printStackTrace();}
 			}
-	
+			
+			//QnA 내역확인
+				else if(command.equals("/MemberQNAlist.me")){
+					action = new MemberQnaList();
+					try{
+						forward = action.execute(request, response);
+					}catch(Exception e){e.printStackTrace();}
+				}else if(command.equals("/MemberQNAcontent.me")){
+					action = new MemberQnaContent();
+					try{
+						forward = action.execute(request, response);
+					}catch(Exception e){e.printStackTrace();}
+				}
 		
 			
 		
