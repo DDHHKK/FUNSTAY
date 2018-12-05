@@ -102,7 +102,7 @@
 </table> -->
 <%
 int wishlist_num = ((Integer)request.getAttribute("wishlist_num")).intValue(); 
-int home_num = 1234; //Integer.parseInt("home_num");
+int home_num = ((Integer)request.getAttribute("home_num")).intValue(); 
 
 List MyWishlist = (List)request.getAttribute("mywishlist");
 
