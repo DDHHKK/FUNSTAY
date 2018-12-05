@@ -52,7 +52,8 @@ img.avatar {
 .btn_remove{
     background-color: transparent;
     color: black;
-    padding: 0 10px;
+    padding: 20px 10px;
+    margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
@@ -85,7 +86,7 @@ img.avatar {
 
 .container {
     /*padding: 28px; 기존*/
-     padding: 35px 51px;
+     padding: 17px 40px;
 }
 #forget_sh{overflow:hidden;}
 .forget a {
@@ -168,7 +169,13 @@ img.avatar {
 .naver_box{padding-left:25px; overflow:hidden;}
 /* 생년월일 박스 사이즈 */
 .birth{
-	width: 29% !important;
+	width: 30% !important;
+    padding: 20px 20px;
+    margin: 7px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 7px;
 }
 /* submit 버튼 */
 .subtn{
@@ -186,6 +193,28 @@ img.avatar {
 } 
 #a{
 	color: #fff;
+}
+.log_btn_sh{
+	background-color: transparent;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size:14px;
+    font-weight: bold;
+    padding-top:10px; 
+    
+}
+
+.log_btn_sh input:HOVER{
+	text-decoration: underline;
+	color: #999;
+}
+.psw-repeat{
+	border-width: 0px !important;
+    height: 20px !important;
+    color: red !important;
+    padding: 0px !important;
+    margin: auto !important;
 }
 /* 취소버튼 스타일
 .cancelbtn {
