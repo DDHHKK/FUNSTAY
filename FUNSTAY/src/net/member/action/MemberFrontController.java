@@ -55,7 +55,7 @@ public class MemberFrontController extends HttpServlet{
 		}else if(command.equals("/MemberJoinAction2.me")){
 				action = new MemberJoinAction2();
 				try {
-					forward = action.execute(request, 			response);
+					forward = action.execute(request,response);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}	
@@ -83,7 +83,7 @@ else if(command.equals("/MemberLogin.me")){
 		else if(command.equals("/MemberLoginAction2.me")){
 			action = new MemberLoginAction2();
 			try {
-				forward = action.execute(request, 				response);
+				forward = action.execute(request,response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -114,7 +114,7 @@ else if(command.equals("/MemberLogin.me")){
 		else if (command.equals("/MemberLogout.me")) {
 			action = new MemberLogoutAction();
 			try {
-				forward = action.execute(request, response);
+				forward = action.execute(request,response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -126,7 +126,7 @@ else if(command.equals("/MemberLogin.me")){
 		else if (command.equals("/MemberLogout2.me")) {
 			action = new MemberLogoutAction2();
 			try {
-				forward = action.execute(request, 					response);
+				forward = action.execute(request,response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
