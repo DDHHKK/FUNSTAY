@@ -13,7 +13,7 @@
 <link href="./css/default/login.css" rel="stylesheet">
 <link href="./css/default/default.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- 페이지 default 링크 끝-->
+<!-- 페이지 default 링크 끝--> 
 
 <!-- 도이씨 삽입링크 -->
 <link href="./css/search/search.css" rel="stylesheet">
