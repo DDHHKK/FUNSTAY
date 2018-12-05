@@ -15,13 +15,13 @@ public class MemberFrontController extends HttpServlet{
 			throws ServletException, IOException{
 		
 		String requestURI = request.getRequestURI();
-		System.out.println("URL ¿äÃ»:" + requestURI);
+		System.out.println("URL ï¿½ï¿½Ã»:" + requestURI);
 		
 		String ContextPath = request.getContextPath();
-		System.out.println("ÇÁ·ÎÁ§Æ® ÀÌ¸§ ±æÀÌ:"+ContextPath.length()); //>>8ÀÚ
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½:"+ContextPath.length()); //>>8ï¿½ï¿½
 		String command= requestURI.substring(ContextPath.length());
 		
-		System.out.println("»Ì¾Æ¿Â °¡»óÀÇ ÁÖ¼Ò:" + command);//>>/*.me
+		System.out.println("ï¿½Ì¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½:" + command);//>>/*.me
 		
 		
 		ActionForward forward = null;
@@ -175,7 +175,7 @@ else if(command.equals("/MemberLogin.me")){
 		else if(command.equals("/MemberSearchAction.me")){
 			action = new MemberSearchAction();
 			try {
-				forward = action.execute(request, 					response);
+				forward = action.execute(request,response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -186,7 +186,7 @@ else if(command.equals("/MemberLogin.me")){
 		else if(command.equals("/MemberSearchAction2.me")){
 			action = new MemberSearchAction2();
 			try {
-				forward = action.execute(request, 					response);
+				forward = action.execute(request,response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -216,7 +216,7 @@ else if(command.equals("/MemberLogin.me")){
 				e.printStackTrace();
 			}
 			
-		//find	¾ÆÀÌµð
+		//find	ï¿½ï¿½ï¿½Ìµï¿½
 		} else if(command.equals("/find_id.me")){
 			forward = new ActionForward();
 			forward.setPath("./id_pw_find/FindForm_id.jsp");
@@ -229,7 +229,7 @@ else if(command.equals("/MemberLogin.me")){
 				e.printStackTrace();
 			}
 			
-		//find	ºñ¹Ð¹øÈ£
+		//find	ï¿½ï¿½Ð¹ï¿½È£
 		} else if(command.equals("/find_pw.me")){
 			forward = new ActionForward();
 			forward.setPath("./id_pw_find/FindForm_pw.jsp");
@@ -242,7 +242,7 @@ else if(command.equals("/MemberLogin.me")){
 				e.printStackTrace();
 			}			
 			
-		//È¸¿øÁ¤º¸ pass Check	
+		//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ pass Check	
 		} else if(command.equals("/PassCheckForm.me")){
 			forward = new ActionForward();
 			forward.setPath("./member/passwordCheck.jsp");
@@ -311,7 +311,7 @@ else if(command.equals("/MemberLogin.me")){
 		
 		
 		
-		if (forward != null) { // ÀÌµ¿ÇÒ Á¤º¸°¡ ÀÖÀ¸¸é
+		if (forward != null) { // ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
 			} else {
