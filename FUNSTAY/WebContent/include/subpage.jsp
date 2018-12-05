@@ -65,7 +65,7 @@ $(document).ready(function(){
 	<li><hr></li>
 	<li class="a"><a href="./HostPassCheckAction.ho">숙소 정보 수정</a></li>
 	<li class="a"><a href="#">숙소 삭제(없음)</a></li>
-	<li class="a"><a href="#">예약 관리(없음)</a></li>
+	<li class="a"><a href="./BookingList.ho">예약 관리</a></li>
 	<li class="a"><a href="./HostCash.ho">MY CASH</a></li>
 	<%} %>
 	<%if(email.equals("admin")){%>

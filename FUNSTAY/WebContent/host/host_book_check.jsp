@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="./css/host/cal/jquery-frontier-cal-1.3.2.css" />
 
 <!-- Include CSS for color picker plugin (Not required for calendar plugin. Used for example.) -->
-<link rel="stylesheet" type="text/css" href="./css/host/cal//colorpicker.css" />
+<link rel="stylesheet" type="text/css" href="./css/host/cal/colorpicker.css" />
 
 <!-- Include CSS for JQuery UI (Required for calendar plugin.) -->
 <link rel="stylesheet" type="text/css" href="./css/host/cal/smoothness/jquery-ui-1.8.1.custom.css" />
@@ -83,7 +83,13 @@ body { font-size: 62.5%; }
 	width: 14.27% !important;}
 #mycal>div{width:100.1% !important;}
 
-
+#back_shj{    border-radius: 4%;
+    margin-left: 44%;
+    padding: 0.5% 2%;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    font-size: 16px;} 
 </style>
 
 <script type="text/javascript">
@@ -123,6 +129,7 @@ $(document).ready(function(){
 		Calendar cal_out = Calendar.getInstance();
 		cal_out.setTime(bb.getCheck_out());
 
+		
 	%> 
 
 	var startDateObj = new Date(<%=cal_in.get(Calendar.YEAR )%>,<%=cal_in.get(Calendar.MONTH)%>,<%=cal_in.get(Calendar.DAY_OF_MONTH)%>,12,00,0,0);
@@ -136,19 +143,27 @@ $(document).ready(function(){
 			endDateObj,	
 			false,
 			{
+		<%
+		if(!(pb.getPayment_status().equals("결제취소")))
+		{
+		%>
 		
-				부가세 : <%=pb.getFees()%>,
-				구매날짜 : "<%=pb.getPayment_date()%>",		
-				구매상태 : "<%=pb.getPayment_status()%>",
-				체크아웃 : "<%=bb.getCheck_out()%>",
-				체크인 : "<%=bb.getCheck_in()%>",
-				 호스트email :"<%=pb.getHost_email()%>",
-				 구매번호: "<%=bb.getPayment_num()%>",
-				 인원수:<%=bb.getPeople()%>,
-				합계: <%=pb.getSum_price()%>,
-				예약날짜: "<%=bb.getBooking_date()%>",
-				 예약상태: <%=bb.getBooking_status()%>,
-				 구매자email:"<%=pb.getMember_email()%>",
+		부가세 : <%=pb.getFees()%>,
+		구매날짜 : "<%=pb.getPayment_date()%>",		
+		구매상태 : "<%=pb.getPayment_status()%>",
+		체크아웃 : "<%=bb.getCheck_out()%>",
+		체크인 : "<%=bb.getCheck_in()%>",
+		호스트email :"<%=pb.getHost_email()%>",
+		구매번호: "<%=bb.getPayment_num()%>",
+		인원수:<%=bb.getPeople()%>+"명",
+		합계: <%=pb.getSum_price()%>,
+		예약날짜: "<%=bb.getBooking_date()%>",
+		 예약상태: "<%=bb.getBooking_status()%>",
+		 구매자email:"<%=pb.getMember_email()%>",
+		<%
+		}
+		%>
+				
 
 		
 				/* 		호스트아이디 pb.payment
@@ -598,11 +613,11 @@ $(document).ready(function(){
 		<br><br>
 
 		<div id="toolbar" class="ui-widget-header ui-corner-all" style="padding:3px; vertical-align: middle; white-space:nowrap; overflow: hidden;">
-			<button id="BtnPreviousMonth">Previous Month</button>
+			<button id="BtnPreviousMonth">이전 달</button>
 		
-			
+			<button id="back_shj" onclick="location.href='MemberUpdate.me'">Back</button>
 		
-				<button id="BtnNextMonth">Next Month</button>
+				<button id="BtnNextMonth">다음 달</button>
 		</div>
 
 		<br>

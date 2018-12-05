@@ -18,7 +18,7 @@ public class DeleteWishlist implements Action{
 		int wishlist_num = Integer.parseInt(request.getParameter("wishlist_num"));
 		WishlistDAO wdao = new WishlistDAO();
 		HttpSession session = request.getSession();
-		String member_email = (String)session.getAttribute("member_email");
+		String member_email = (String)session.getAttribute("email");
 		wdao.DeleteWishlist(wishlist_num, member_email);
 		ActionForward af = new ActionForward();
 		af.setRedirect(true);

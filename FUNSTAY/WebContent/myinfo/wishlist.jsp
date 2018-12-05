@@ -92,7 +92,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 <%
 
-String member_email = (String)session.getAttribute("member_email");
+String member_email = (String)session.getAttribute("email");
  int listcount = ((Integer)request.getAttribute("listcount")).intValue();  
 
 
