@@ -67,7 +67,8 @@
  	<a name="숙소이름"><h1>숙소이름 : <%=sc.getRoom_subject() %></h1></a><br><br> 
  	Room_type : <%=sc.getRoom_type() %> <br>
 	숙소내용 : <%=sc.getRoom_content() %> <br>
-	price : <%=sc.getPrice() %>
+	price : <%=sc.getPrice() %> <br>
+	사진 : <%=sc.getPhoto() %>
 <br><br><br><br><br><br><br>
 	</div>
 
@@ -95,7 +96,6 @@
 	<a name="숙소이용규칙"><h1>숙소이용규칙</h1></a>
 	체크인 시간 - <%=sc.getIn_time() %> <br>
 	체크아웃 시간 - <%=sc.getOut_time() %> <br> 
-	신청날짜 - <%=sc.getApply_date() %> <br> 
 	시작날짜 - <%=sc.getStart_date() %> <br>
 	마감날짜 - <%=sc.getEnd_date() %> <br>  
 	</div>

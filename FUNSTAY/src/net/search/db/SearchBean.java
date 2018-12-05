@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class SearchBean {
 	  private int home_num;
-	  private int host_num;
+	  private String host_email;
 	  private String address;
 	  private String room_type;
 	  private String photo;
@@ -25,11 +25,11 @@ public class SearchBean {
 	public void setHome_num(int home_num) {
 		this.home_num = home_num;
 	}
-	public int getHost_num() {
-		return host_num;
+	public String getHost_email() {
+		return host_email;
 	}
-	public void setHost_num(int host_num) {
-		this.host_num = host_num;
+	public void setHost_email(String host_email) {
+		this.host_email = host_email;
 	}
 	public String getAddress() {
 		return address;

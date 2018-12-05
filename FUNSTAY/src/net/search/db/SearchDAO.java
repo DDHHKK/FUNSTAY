@@ -24,14 +24,13 @@ public class SearchDAO {
 	PreparedStatement pstmt = null;
 	String sql = null; 
 
-	private Connection getConnection() throws Exception {
+private Connection getConnection() throws Exception{
+		
+		Connection con = null;
+		Context init = new InitialContext();
+		DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/MysqlDB");
+		con = ds.getConnection();
 
-		Class.forName("com.mysql.jdbc.Driver");
-
-		String dbUrl = "jdbc:mysql://localhost:3306/funstay";
-		String dbUser = "jspid";
-		String dbPass = "jsppass";
-		con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
 		return con;
 	}
 	
@@ -83,7 +82,7 @@ public class SearchDAO {
 				while(rs.next()){
 					SearchBean sc=new SearchBean();
 					sc.setHome_num(rs.getInt("home_num"));
-					sc.setHost_num(rs.getInt("host_num"));
+					sc.setHost_email(rs.getString("host_email"));
 					sc.setAddress(rs.getString("address"));
 					sc.setRoom_type(rs.getString("room_type"));
 					sc.setPhoto(rs.getString("photo"));
@@ -143,7 +142,7 @@ public class SearchDAO {
 				rs = pstmt.executeQuery();
 				while(rs.next()){				
 					sc.setHome_num(rs.getInt(1));
-					sc.setHost_num(rs.getInt(2));
+					sc.setHost_email(rs.getString(2));
 					sc.setAddress(rs.getString(3));
 					sc.setRoom_type(rs.getString(4));
 					sc.setPhoto(rs.getString(5));
