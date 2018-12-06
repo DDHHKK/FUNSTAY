@@ -2,9 +2,13 @@ package net.wishlist.controller;
 
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import net.wishlist.db.WishlistBean;
 import net.wishlist.db.WishlistDAO;
@@ -16,8 +20,6 @@ public class AddWishlist implements Action{
 		// TODO Auto-generated method stub
 		System.out.println("AddWishlist execute()");
 		request.setCharacterEncoding("utf-8");
-		String list_name = (String)request.getParameter("list_name");
-		String list_photo = (String)request.getParameter("list_photo");
 		HttpSession session = request.getSession();
 		String member_email = (String)session.getAttribute("email");
 		WishlistDAO wdao = new WishlistDAO();
@@ -36,13 +38,17 @@ public class AddWishlist implements Action{
 		}
 		else
 		{
+			ServletContext context=request.getServletContext();
+			String filePath=context.getRealPath("/upload");
+			int maxSize=10*1024*1024;
+			MultipartRequest multi = new MultipartRequest(request, filePath, maxSize, "utf-8", new DefaultFileRenamePolicy());
+			
 			WishlistBean wb = new WishlistBean();
-			wb.setList_name(list_name);
-			wb.setMember_email(member_email);
-			wb.setList_photo(list_photo);
-			
+			wb.setList_name(multi.getParameter("list_name"));
+			wb.setMember_email(multi.getParameter("member_email"));
+			wb.setList_photo(multi.getFilesystemName("list_photo"));
 			wdao.addWishList(wb);
-			
+			System.out.println(wb.getList_photo());
 			af.setPath("./Wishlist.wi");
 			
 		}

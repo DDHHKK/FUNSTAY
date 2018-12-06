@@ -40,6 +40,7 @@ public class WishlistDAO {
 		ResultSet rs=null;
 		String sql="";
 		int wishlist_num=0;
+		String list_photo = null;
 		try {
 			//1,2 디비연결
 			con=getConnection();
@@ -53,13 +54,35 @@ public class WishlistDAO {
 				wishlist_num = rs.getInt("max(wishlist_num)")+1;
 			}
 			
+			sql="select home_photo from wish where wish_num=(select min(m.wish_num) "
+					+ "as wish_num from wishlist w, wish m where w.member_email="
+					+ "? and w.wishlist_num=m.wishlist_num and m.wishlist_num=?)";
+					
+			psm=con.prepareStatement(sql);
+			psm.setInt(2, wishlist_num);
+			psm.setString(1, wb.getMember_email());
+			rs=psm.executeQuery();
+			
+			if(rs.next())
+			{
+				list_photo = rs.getString("home_photo");
+			}
+			
 			//3 sql insert  now()
 			sql="insert into wishlist (wishlist_num,list_name,member_email,list_photo) values(?,?,?,?)";
 			psm=con.prepareStatement(sql);
 			psm.setInt(1, wishlist_num);
 			psm.setString(2, wb.getList_name());
 			psm.setString(3, wb.getMember_email());
-			psm.setString(4, wb.getList_photo());
+			if(rs.next())
+			{
+				psm.setString(4, rs.getString("home_photo"));
+			}
+			else
+			{
+				psm.setString(4, "./myinfo/No_Image_Available.gif");
+			}
+			
 			//4 실행
 			psm.executeUpdate();
 		} catch (Exception e) {

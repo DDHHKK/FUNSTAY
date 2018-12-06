@@ -93,6 +93,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 <%
 
 String member_email = (String)session.getAttribute("email");
+String list_photo = "No_Image_Available.gif";
+
  int listcount = ((Integer)request.getAttribute("listcount")).intValue();  
 
 
@@ -141,11 +143,11 @@ String member_email = (String)session.getAttribute("email");
 	<h2 >목록 만들기</h2>
 
 
-	
-	<form action="./AddWishlist.wi" method="post" id="wishlistForm_hj">
+
+	<form action="./AddWishlist.wi" method="post" id="wishlistForm_hj" enctype="multipart/form-data">
 	<input type="text" name="list_name" id="list_name" size='23' ></input>
 	<input type="hidden" name="member_email" id="member_email" value=<%=member_email%>>
-	<input type="hidden" name="list_photo" id="list_photo" value="../img/myinfo/No_Image_Available.gif">
+	<input type="hidden" name="list_photo" id="list_photo" value=<%=list_photo%>>
 	<input type="submit" value="만들기" class="btn_login"></input>
 	</form>
 	

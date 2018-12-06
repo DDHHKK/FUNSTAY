@@ -20,6 +20,14 @@ public class BookingList implements Action{
 		int room_num = 1;//Integer.parseInt(request.getParameter("room_num"));
 		HttpSession session = request.getSession();
 		String member_email = (String)session.getAttribute("email");
+		ActionForward forward = new ActionForward();
+		if(member_email==null)
+		{
+			forward.setRedirect(false);
+			forward.setPath("./Main.me");
+			return forward;
+		}
+		
 		BookingDAO bdao = new BookingDAO();
 		Vector<?> vector = bdao.getBookingList(room_num,member_email);
 	
@@ -29,7 +37,7 @@ public class BookingList implements Action{
 		request.setAttribute("bookinglist", bookinglist);
 		request.setAttribute("paymentlist", paymentlist);
 		
-		ActionForward forward = new ActionForward();
+		
 		forward.setRedirect(false);
 		forward.setPath("./host/host_book_check.jsp");
 		return forward;
