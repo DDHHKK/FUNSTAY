@@ -73,6 +73,7 @@
 	숙소내용 : <%=sc.getRoom_content() %> <br>
 	price : <%=sc.getPrice() %> <br>
 	사진 : <%=sc.getPhoto() %>
+	<img src="<%= sc.getPhoto() %>" >
 <br><br><br><br><br><br><br>
 	</div>
 
@@ -106,9 +107,9 @@
 </div>
  <br><br><br><br><br>
  
-<div id="room_review">
+<%-- <div id="room_review">
 <jsp:include page="room_review.jsp"></jsp:include>
-</div>  
+</div>  --%> 
 
  
  

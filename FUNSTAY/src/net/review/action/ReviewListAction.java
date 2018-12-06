@@ -39,7 +39,7 @@ public class ReviewListAction implements Action{
 		// 끝행구하기
 		int endRow = currentPage * pageSize;
 		System.out.println("4");
-		int home_num = 2;
+		int home_num = 1;
 		List<ReviewBean> ReviewList = null;
 		if (count != 0)
 			ReviewList = bdao.getReviewList(startRow, pageSize, home_num);

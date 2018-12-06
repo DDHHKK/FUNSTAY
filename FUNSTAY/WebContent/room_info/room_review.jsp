@@ -69,18 +69,18 @@
 			}
 			//이전
 			if (startPage > pageBlock) {
-	%><a href="./ReviewList.fa?pageNum=<%=startPage - pageBlock%>">[이전]</a>
+	%><a href="./ReviewList.re?pageNum=<%=startPage - pageBlock%>">[이전]</a>
 	<%
 		}
 			// 1~10
 			for (int i = startPage; i <= endPage; i++) {
-	%><a href="./ReviewList.fa?pageNum=<%=i%>">[<%=i%>]
+	%><a href="./ReviewList.re?pageNum=<%=i%>">[<%=i%>]
 	</a>
 	<%
 		}
 			//다음
 			if (endPage < pageCount) {
-	%><a href="./ReviewList.fa?pageNum=<%=startPage + pageBlock%>">[다음]</a>
+	%><a href="./ReviewList.re?pageNum=<%=startPage + pageBlock%>">[다음]</a>
 	<%
 		}
 
