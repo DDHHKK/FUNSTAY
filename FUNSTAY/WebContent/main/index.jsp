@@ -79,7 +79,7 @@ if (email.equals("admin")) {
 		<a href="./MyReserve.bk">MY RESERVE</a>
 		<a href="./Wishlist.wi">위시리스트</a>
 		<a href="./MemberMileage.me">마일리지</a>
-		<a href="./MemberQNAlist.me">문의하기</a>
+		<a href="./MemberQNAlist.me">문의확인</a>
 		</div>
 	</div>
  	</div><!-- //log_btn_sh -->
