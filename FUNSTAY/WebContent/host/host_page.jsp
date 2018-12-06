@@ -1,3 +1,5 @@
+<%@page import="net.host.db.HostBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,106 +41,28 @@
 <!-- 회원 관리 페이지 왼쪽메뉴바 끝 -->
 
 
-
-
 <!-- 각 페이지 내용을  content 영역 안에 배치 해주세요.-->
 <div id="content_DY">
+
+<%
+List getHostHomes=(List)request.getAttribute("getHostHomes");
+
+%>
 
 <!-- 여기서부터 페이지 내용을 적어주세요. -->
 
 <p class="letter">내 숙소관리</p>
  
+ <table>
+ <%for(int i=0; i<getHostHomes.size(); i++){
+	 HostBean hb=(HostBean)getHostHomes.get(i);%>
 
+ <tr><td><img scr="./upload/<%=hb.getPhoto().split(",")[0]%>" width="100" height="100"></td></tr>
+ 
+  <% }%>
+ 
+ </table>
 
-<!--완료된 숙소탭 시작  -->
-<div id="London" class="w3-container city">
-
- <!--썸네일1시작 -->
-
-  <a href="#">
-  <div class="mywish_shj">
-  <div id="outerbox_shj"><img src="./img/담양1.png"></div>
-  <div id="imginfo_shj">
-  <div id="imgname_shj">부산광역시 해운대</div>
-  <input type="button" value="수정하기" class="update_btn" onclick="location.href='./HostUpdate.ho'"><br>
-  <input type="button" value="삭제하기" onclick="fun1()">
-  </div>
-  </div>
-  </a>
-
-  <!--썸네일1끝  -->
-  
-  
-  
-  <!--썸네일2시작  -->
-  <a href="#">
-  <div class="mywish_shj">
-  <div id="outerbox_shj"> <img src="./img/담양1.png"> </div>
-  <div id="imginfo_shj">
-  <div id="imgname_shj">부산광역시 해운대</div>
-  <div></div>
-  </div>
-  </div>
-  </a>
-  <!--썸네일2끝  -->
-  
-  
-  <!--썸네일3시작  -->
-  <a href="#">
-  <div class="mywish_shj">
-  <div id="outerbox_shj"> <img src="./img/담양1.png"> </div>
-  <div id="imginfo_shj">
-  <div id="imgname_shj">부산광역시 해운대</div>
-
-  </div>
-  </div>
-  </a>
-  <!--썸네일3끝  -->
-  
-  
-  
-  <!--썸네일4시작  -->
-  <a href="#">
-  <div class="mywish_shj">
-  <div id="outerbox_shj"> <img src="./img/담양1.png"> </div>
-  <div id="imginfo_shj">
-  <div id="imgname_shj">부산광역시 해운대</div>
-
-  </div>
-  </div>
-  </a>
-  <!--썸네일4끝  -->
-  
-  
-  <!--썸네일5시작  -->
-   <a href="#">
-  <div class="mywish_shj">
-  <div id="outerbox_shj"> <img src="./img/담양1.png"> </div>
-  <div id="imginfo_shj">
-  <div id="imgname_shj">부산광역시 해운대</div>
-
-  </div>
-  </div>
-  </a>
-  <!--썸네일5끝  -->
-  
-  <!--썸네일6시작  -->
-  <a href="#">
-  <div class="mywish_shj">
-  <div id="outerbox_shj"> <img src="./img/담양1.png"> </div>
-  <div id="imginfo_shj">
-  <div id="imgname_shj">부산광역시 해운대</div>
-
-  </div>
-  </div>
-  </a>
-  <!--썸네일6끝  -->
-  
-  
-  
-  
-</div>
-<!--완료된 숙소 끝  -->
 
 
 

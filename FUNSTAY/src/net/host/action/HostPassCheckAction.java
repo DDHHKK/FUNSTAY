@@ -30,7 +30,7 @@ public class HostPassCheckAction implements Action{
 		if (check == 1) {
 			
 			forward = new ActionForward();
-			forward.setPath("./HostPage.ho");
+			forward.setPath("./HostRoomList.ho");
 			forward.setRedirect(true);
 			return forward;
 

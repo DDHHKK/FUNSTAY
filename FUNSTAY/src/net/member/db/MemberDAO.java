@@ -19,9 +19,9 @@ public class MemberDAO {
 	private Connection getConnection() throws Exception{
 		
 		Connection con = null;
-		// Context ��ü ����
+		// Context 
 		Context init = new InitialContext();
-		// DateSource = ��񿬵� �̸� �ҷ�����
+		// DateSource = 
 		DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/MysqlDB");
 		// con = DataSource
 		con = ds.getConnection();
@@ -29,7 +29,7 @@ public class MemberDAO {
 		return con;
 	}
 	
-	//ȸ������ insertMember()�Լ�
+	//insertMember()start
 	public void insertMember(MemberBean mb){
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -46,14 +46,14 @@ public class MemberDAO {
 				mnum = rs.getInt("max(member_num)")+1;
 			}
 			con = getConnection();
-			sql = "insert into member values(?,?,?,?,?,?,?,?)";
+			sql = "insert into member(email,pass,name,phone,birth,profile_photo,mileage,member_num) values(?,?,?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1,mb.getEmail());
 			pstmt.setString(2,mb.getPass());
 			pstmt.setString(3,mb.getName());
-			pstmt.setString(4,"no_profile.png");
-			pstmt.setString(5,mb.getPhone());
-			pstmt.setString(6,mb.getBirth());
+			pstmt.setString(4,mb.getPhone());
+			pstmt.setString(5,mb.getBirth());
+			pstmt.setString(6,"no_profile.png");
 			pstmt.setInt(7,0);
 			pstmt.setInt(8,mnum);
 			
@@ -65,9 +65,9 @@ public class MemberDAO {
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 		}
 		return;
-	}//insert�Լ�
+	}//insert end
 	
-	//getMember() �Լ�
+	//getMember() start
 	public MemberBean getMember(String email){
 		MemberBean mb = new MemberBean();
 		Connection con = null;
@@ -98,9 +98,9 @@ public class MemberDAO {
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 			}
 		return mb;
-		}//getMember�Լ�
+		}//getMember end
 	
-	//email�ߺ� check()�Լ�
+	//email check()start
 	public int emailCheck(String email){
 		Connection con =null;
 		PreparedStatement pstmt = null;
@@ -124,9 +124,9 @@ public class MemberDAO {
 				if(con!=null)try{con.close();}catch (SQLException e) {}	
 		}
 		return check;
-		}//email�ߺ� check()�Լ�
+		}//email check()end
 	
-	//�̸���(���̵�)��й�ȣ üũ �Լ�
+	//email(id)pass check()start
 	public int userCheck(String email,String pass){
 		int check=-1;
 		Connection con=null;
@@ -162,9 +162,9 @@ public class MemberDAO {
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 		}
 		return check;
-	}//�̸���(���̵�)��й�ȣ üũ �Լ�
+	}//eamil(id)pass check()end
 	
-	//updateMember()�Լ�
+	//updateMember()start
 	public int updateMember(MemberBean mb) {
 		int check = -1;
 		PreparedStatement pstmt=null;
@@ -195,9 +195,9 @@ public class MemberDAO {
 			}catch (SQLException e) {}
 		}
 		return check;
-	}//updateMember()�Լ�
+	}//updateMember()end
 	
-	//deleteMember()�Լ�
+	//deleteMember()start
 	public int deleteMember(String email, String pass) {
 		int check =1;
 		Connection con =null;
@@ -223,9 +223,9 @@ public class MemberDAO {
 			}catch (SQLException e) {}
 		}
 		return check;
-	}//deleteMember()�Լ�
+	}//deleteMember()end
 	
-//ȸ������ getMemberList()�Լ�
+// getMemberList()start
 	public List<MemberBean> getMemberList(int startRow, int pageSize){
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -258,9 +258,9 @@ public class MemberDAO {
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 		}
 		return list;
-	   }//ȸ������ getMemberList()�Լ�
+	   }//getMemberList()end
 	
-	//deleteList()�Լ�
+	//deleteList()start
 	public void deleteList(int member_num) {
 		
 		Connection con =null;
@@ -286,18 +286,18 @@ public class MemberDAO {
 			}catch (SQLException e) {}
 		}
 		return;
-	}//deleteList()�Լ�
+	}//deleteList()end
 	
 	
-	//���̵� ã��
+	//ID find start
 	public String findid(MemberBean mb){
 		  String email = null;
 		  Connection con = null;
 		  PreparedStatement pstmt = null;
 		  ResultSet rs = null;
 		  
-		  System.out.println("���̵� �� Ȯ�� >>>> "+mb.getName());
-		  System.out.println("��ȣ �� Ȯ�� >>>> " + mb.getPhone());
+		  //System.out.println("���̵� �� Ȯ�� >>>> "+mb.getName());
+		  //System.out.println("��ȣ �� Ȯ�� >>>> " + mb.getPhone());
 		  try{
 			  con=getConnection();
 		   String sql = "select email from member where name=? and phone=?";
@@ -317,16 +317,16 @@ public class MemberDAO {
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 		  }
 		  return email;
-		 }//���̵�ã��
+		 }//Id find end
 	
-	//��й�ȣ ã��
+	//pass find start
 	public String findpw(MemberBean mb){
 		String pass = null;
 		Connection con = null;
 		  PreparedStatement pstmt = null;
 		  ResultSet rs = null;
-		  System.out.println("���̵� �� Ȯ�� >>>> "+mb.getEmail());
-		  System.out.println("��ȣ �� Ȯ�� >>>> " + mb.getName());
+		  //System.out.println("���̵� �� Ȯ�� >>>> "+mb.getEmail());
+		  //System.out.println("��ȣ �� Ȯ�� >>>> " + mb.getName());
 		  try {
 			  con=getConnection();
 		   String sql = "select pass from member where email=? and name=?";
@@ -348,12 +348,12 @@ public class MemberDAO {
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 		  }
 		  return pass;
-	}//��й�ȣã��
+	}//pass find end
 	
 
-	//���ϸ��� DAO���� 
+	//mileage DAO start 
 	
-	//���ϸ��� ��������Ʈ select
+	//mileage list select
 	public List<PaymentBean> getMileageList(String email){
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -385,7 +385,7 @@ public class MemberDAO {
 		return m_list;
 	}
 	
-	// ���� ����/���, ���� ���� ���ϸ��� select
+	// now mileage select
 	public int[] gettotalMileage(String member_email){
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -413,7 +413,7 @@ public class MemberDAO {
 		return getmileage;
 	}
 	
-	//�Ⱓ�� ���ϸ��� ��������Ʈ select
+	//MileageList select
 	public List<PaymentBean> getSearchMileageList(String email, String start_searchdate, String end_searchdate){
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -447,7 +447,7 @@ public class MemberDAO {
 		return m_list;
 	}
 	
-	// QnA����Ʈ
+	// QnA start
 		public List<QnaBean> getQnAList(String member_email){
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -487,7 +487,7 @@ public class MemberDAO {
 			return q_list;
 		}
 	
-	//ȸ�����(����¡ ī��Ʈ)
+	//memberlist(pageing count) start
 	public int getmemberCount(){
 		Connection con = null;
 		PreparedStatement psm = null;
@@ -511,9 +511,9 @@ public class MemberDAO {
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 		}
 		return count;
-	}
+	}//memberlist(pageing count) end
 	
-//�˻����� ã�� DAO�Դϴ�(������)
+//searchlist
 public Vector getsearchList(MemberBean mb){
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -622,4 +622,4 @@ public Vector getsearchList3(MemberBean mb){
 	}
 	
 	
-}//Ŭ����
+}//class end

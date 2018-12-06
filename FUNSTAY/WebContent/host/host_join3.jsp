@@ -136,10 +136,7 @@ else{
 <tr><td colspan="2"><input type="button" value="<<이전페이지" id="back_btn" onclick="history.go(-1)">
 <input type="submit" value="숙소등록하기" id="sub_btn"></td></tr>
 </table>
-</form>
-
-
-
+	
 <table id="photo_up">
 <tr><td><b>숙소 사진을 업로드 해주세요.</b></td></tr>
 <tr><td><input type="file" name="photo1"></td></tr>
@@ -148,6 +145,10 @@ else{
 <tr><td><input type="file" name="photo4"></td></tr>
 <tr><td><input type="file" name="photo5"></td></tr>
 </table>
+	
+</form>
+
+
 
 <!-- 페이지내용 끝 -->
 </div>

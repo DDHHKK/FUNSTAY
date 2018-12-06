@@ -15,13 +15,13 @@ public class MemberFrontController extends HttpServlet{
 			throws ServletException, IOException{
 		
 		String requestURI = request.getRequestURI();
-		System.out.println("URL ��û:" + requestURI);
+		//System.out.println("URL ��û:" + requestURI);
 		
 		String ContextPath = request.getContextPath();
-		System.out.println("������Ʈ �̸� ����:"+ContextPath.length()); //>>8��
+		//System.out.println("������Ʈ �̸� ����:"+ContextPath.length()); //>>8��
 		String command= requestURI.substring(ContextPath.length());
 		
-		System.out.println("�̾ƿ� ������ �ּ�:" + command);//>>/*.me
+		//System.out.println("�̾ƿ� ������ �ּ�:" + command);//>>/*.me
 		
 		
 		ActionForward forward = null;
@@ -96,8 +96,6 @@ else if(command.equals("/MemberLogin.me")){
 			forward = new ActionForward();
 			forward.setPath("./main/index.jsp");
 			forward.setRedirect(false);
-			
-		//logout
 		}
 
 
@@ -110,7 +108,7 @@ else if(command.equals("/MemberLogin.me")){
 			
 		
 		}
-
+		//logout
 		else if (command.equals("/MemberLogout.me")) {
 			action = new MemberLogoutAction();
 			try {
@@ -132,11 +130,11 @@ else if(command.equals("/MemberLogin.me")){
 			}
 			
 		
-		}	
 
 			//update
 
-			else if(command.equals("/MemberUpdate.me")){
+			
+		}else if(command.equals("/MemberUpdate.me")){
 			action = new MemberUpdate();
 			try {
 				forward = action.execute(request, response);
@@ -216,7 +214,7 @@ else if(command.equals("/MemberLogin.me")){
 				e.printStackTrace();
 			}
 			
-		//find	���̵�
+		//find ID
 		} else if(command.equals("/find_id.me")){
 			forward = new ActionForward();
 			forward.setPath("./id_pw_find/FindForm_id.jsp");
@@ -229,7 +227,7 @@ else if(command.equals("/MemberLogin.me")){
 				e.printStackTrace();
 			}
 			
-		//find	��й�ȣ
+		//find PASS
 		} else if(command.equals("/find_pw.me")){
 			forward = new ActionForward();
 			forward.setPath("./id_pw_find/FindForm_pw.jsp");
@@ -242,7 +240,7 @@ else if(command.equals("/MemberLogin.me")){
 				e.printStackTrace();
 			}			
 			
-		//ȸ������ pass Check	
+		//pass check	
 		} else if(command.equals("/PassCheckForm.me")){
 			forward = new ActionForward();
 			forward.setPath("./member/passwordCheck.jsp");
@@ -323,7 +321,7 @@ else if(command.equals("/MemberLogin.me")){
 		
 		
 		
-		if (forward != null) { // �̵��� ������ ������
+		if (forward != null) { 
 			if (forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
 			} else {
