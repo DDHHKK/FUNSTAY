@@ -26,7 +26,7 @@ public class MyWish implements Action{
 
 		/* 리스트 찾아가기 */
 		HttpSession session = request.getSession();
-		String member_email = "d";
+		String member_email = (String)session.getAttribute("email");
 		WishlistDAO wdao = new WishlistDAO();
 		List<WishlistBean> Wishlist = wdao.getWishList(member_email);
 		

@@ -143,10 +143,8 @@ public class BookDAO {
 		return vector;
 		
 	}//완료된 숙소 가져오는 메서드 끝
-	
-	
-	
-	
+    
+
 	
 
 }//BookDAO 클래스 끝

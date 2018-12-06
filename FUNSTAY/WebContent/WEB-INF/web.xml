@@ -75,6 +75,24 @@
 		<servlet-name>BookingFrontController</servlet-name>
 		<url-pattern>*.bo</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+	    <servlet-name>SearchFrontController</servlet-name>
+		<servlet-class>net.search.controller.SearchFrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchFrontController</servlet-name>
+		<url-pattern>*.sc</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>ReviewFrontController</servlet-name>
+		<servlet-class>net.review.controller.ReviewFrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReviewFrontController</servlet-name>
+		<url-pattern>*.re</url-pattern>
+	</servlet-mapping>
+ 
 
 </web-app>
