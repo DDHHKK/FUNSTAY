@@ -37,7 +37,7 @@ public class ReviewWriteAction implements Action{
 		//이동  ./ReviewList.bo
 		ActionForward forward=new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("./MyReserve.bk");
+		forward.setPath("./room_info/subpage.jsp");
 		return forward;
 	}
 	
