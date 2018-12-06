@@ -47,37 +47,31 @@
 	</tr> -->
 <%
 List<QnaBean> q_list = (List)request.getAttribute("q_list");
-int re_ref;
-for(int i=0;i<1/* q_list.size() */;i++){
+for(int i=0;i<q_list.size();i++){
 	QnaBean qb = (QnaBean)q_list.get(i);
-	re_ref=qb.getRe_ref();
-%>
-	<tr>
-		<td>번호</td><td><%=qb.getQnA_num() %></td>
-		<td>등록일</td><td><%=qb.getQnA_date() %></td>
-		<td>답변여부</td><td>
-			<%if(qb.getRe_seq()==1){%>답변완료
-			<%}else{%>답변중<%}%>
-			</td>
-	</tr>
-	<tr>
-		<td>제목</td><td class="qnaopensub" colspan="5"><%=qb.getSubject() %></td>
-	</tr>
-	<tr>
-		<td>룸정보</td><td colspan="5"><%=qb.getHome_num() %></td>
-	</tr>
+	if(i==0 || i%2==0){%>
+		<tr>
+			<td>번호</td><td><%=qb.getQnA_num() %></td>
+			<td>등록일</td><td><%=qb.getQnA_date() %></td>
+			<td>답변여부</td><td>
+				<%if(qb.getRe_seq()==1){%>답변완료
+				<%}else{%>답변중<%}%>
+				</td>
+		</tr>
+		<tr>
+			<td>제목</td><td class="qnaopensub" colspan="5"><%=qb.getSubject() %></td>
+		</tr>
+		<tr>
+			<td>룸정보</td><td colspan="5"><a href="#"><%=qb.getHome_subject() %></a></td>
+		</tr>
+	<%}if(i%2==1){%>
+		<tr><td colspan="6">문의에 대한 답변</td></tr>
+	<%} %>
+	
 	<tr class="qnacontent"><td colspan="6"><%=qb.getContent() %></td></tr>
 <%} %>
-<%
-	for(int i=0;i<q_list.size();i++){
-	QnaBean qb = (QnaBean)q_list.get(i);
-
-	if(qb.getRe_ref()==4 && qb.getRe_lev()==1){%>
-		<tr class="qnacontent"><td colspan="6"><%=qb.getContent() %></td></tr>
-	<%}
-}%>
 	</table>
-	<input type="button" value="목록">
+	<input type="button" value="목록" onclick='location.href="./MemberQNAlist.me"'>
 </div>
 
 

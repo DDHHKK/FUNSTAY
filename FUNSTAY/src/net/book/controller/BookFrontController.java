@@ -58,22 +58,16 @@ public class BookFrontController extends HttpServlet {
 			}
 			
 		}else if(command.equals("/MyReserve.bk")){
-			forward=new ActionForward();
-			forward.setRedirect(false);   //  true/false
-			forward.setPath("./myinfo/my_reserve.jsp");
-			
-			
-			
-		}else if(command.equals("/BeforeTripList.bk")){
-			//forward=new BeforeTripList();
-			try{
-			forward=action.execute(request, response);
-			}catch(Exception e){
+			action=new BeforeTripList();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				
 				e.printStackTrace();
 			}
 			
+			
 		}
-		
 		
 		//이동
 		if(forward!=null){//forward정보가 있으면

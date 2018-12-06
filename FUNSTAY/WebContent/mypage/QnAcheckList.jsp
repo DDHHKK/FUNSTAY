@@ -44,7 +44,7 @@ $(document).ready(function(){
 <!-- header  끝-->
 <!-- <hr> -->
 <div class="clear"></div>
-<div style="height:150px;"></div>
+<!-- <div style="height:150px;"></div> -->
 <!-- 회원 관리 페이지 왼쪽메뉴바 시작 -->
 <jsp:include page="../include/subpage.jsp"></jsp:include>
 <!-- 회원 관리 페이지 왼쪽메뉴바 끝 -->
@@ -71,7 +71,7 @@ for(int i=0;i<q_list.size();i++){
 %>
 	<tr>
 		<td><%=qb.getQnA_num() %></td>
-		<td class="qnaopensub"><a href="./MemberQNAcontent.me?QnA_num=4"><%=qb.getSubject() %></a></td>
+		<td class="qnaopensub"><a href="./MemberQNAcontent.me?QnA_num=<%=qb.getQnA_num()%>&re_ref=<%=qb.getRe_ref()%>"><%=qb.getSubject() %></a></td>
 		<td><%=qb.getQnA_date() %></td>
 		<td>
 			<%if(qb.getRe_seq()==1){%>
