@@ -3,7 +3,7 @@
 <%
 String email = null;
 email = (String)session.getAttribute("email");
-System.out.println(email);
+System.out.println("아이디 : "+email+" -> 메인으로 이동됩니다.");
 
 if(email==null){
 //response.sendRedirect("./MemberLogin.me");
