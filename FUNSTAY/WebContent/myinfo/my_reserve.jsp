@@ -1,3 +1,9 @@
+<%@page import="net.host.db.HostBean"%>
+<%@page import="net.booking.db.PaymentBean"%>
+<%@page import="net.booking.db.BookingBean"%>
+<%@page import="java.util.List"%>
+<%@page import="net.host.action.BookingList"%>
+<%@page import="net.booking.action.Booking"%>
 <%@page import="net.book.db.BookBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -45,7 +51,6 @@
 
 
 
-
 <!-- 각 페이지 내용을  content 영역 안에 배치 해주세요.-->
 <div id="content_DY">
 
@@ -64,30 +69,43 @@
 <div id="London" class="w3-container city">
 
 
-<%
-//int home_num 파라미터 가져오기
-int home_num=Integer.parseInt(request.getParameter("home_num"));
-BookBean bb=(BookBean)request.getAttribute("bb");
-%>
 
 
 
 
  <!--썸네일1시작 -->
  
-  <a href="#">
   <div class="mywish_shj">
   <div id="outerbox_shj"> <img src="../img/담양1.png"> </div>
+  
+<%
+
+List bookingList=(List)request.getAttribute("bookingList");
+List paymentList=(List)request.getAttribute("paymentList");
+List hostList=(List)request.getAttribute("hostList");
+
+for(int i=0; i<bookingList.size(); i++){
+	BookingBean bb=(BookingBean)bookingList.get(i);
+	PaymentBean pb=(PaymentBean)paymentList.get(i);
+	HostBean hb=(HostBean)hostList.get(i);
+System.out.println(bb.getCheck_in());
+
+
+
+
+%>
   <table border="1">
 
-<tr><td>집번호</td><td><%=bb.getHome_num()%></td>
-    <td>집주인이메일</td><td><%=bb.getHost_email()%></td></tr>
-<tr><td>작성자</td><td><%=bb.getRoom_subject()%></td>
-    <td>작성일</td><td><%=bb.getRoom_type()%></td></tr>
+<tr><td>sadf</td><td><%=hb.getRoom_subject()%></td>
+    <td>sadf</td><td><%=bb.getCheck_in()%></td></tr>
+<tr><td>asdf</td><td><%=bb.getCheck_out()%></td>
+    <td>asdf</td><td><%=pb.getSum_price()%></td></tr>
 
 </td></tr> 
 </table>
-  
+<%
+}
+%> 
   
   
   

@@ -8,11 +8,6 @@
 
 
 
-img{
-	margin : 15px;
-	cursor: pointer;
-}
-
  h1{  /* border: 1px solid black; */
     border-left: 5px solid #cc1d1d;
     padding-left: 7px;
@@ -23,7 +18,10 @@ img{
     height: 46px;
  }
 
-
+figcaption>img {
+	margin : 0px 10px 0px 10px;
+	cursor: pointer;
+}
 
 
 

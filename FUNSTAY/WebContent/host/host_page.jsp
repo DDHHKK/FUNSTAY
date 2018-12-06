@@ -3,10 +3,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html  class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="Codrops" />
+<link rel="shortcut icon" href="../favicon.ico"> 
 <title>FunStay</title>
 <!-- 페이지 default 링크 시작 -->
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
@@ -21,7 +26,10 @@
 
 
 <link href="./css/host/host_page.css" rel="stylesheet"> 
+<link href="./css/host/component.css" rel="stylesheet"> 
+<link href="./css/host/com_default.css" rel="stylesheet"> 
 
+<script src="./js/host/modernizr.custom.js"></script>
 
 </head>
 
@@ -52,16 +60,22 @@ List hostHome=(List)request.getAttribute("hostHome");
 
 <h1>내 숙소관리</h1>
  
- <table id="host_room_list">
+ <table class="grid cs-style-3">
 
     <%for(int i=0; i<hostHome.size(); i++){
 	 HostBean hb=(HostBean)hostHome.get(i);
 	 
 	 if(i%3==0) { %>
 	  <tr> <% } %>
+  
+<td><figure><img src="./upload/<%=hb.getPhoto().split(",")[0]%>" width="300" height="300"> 
+	<figcaption>
 
-<td><img src="./upload/<%=hb.getPhoto().split(",")[0]%>" width="300" height="300" onclick="location.href='./HostMain.ho'"> </td>
- 
+		<img src="./img/icon/paper.png" width="50px" height="50px" onclick="">
+		<img src="./img/icon/pen.png" width="50px" height="50px"  onclick="">
+		<img src="./img/icon/basket.png" width="50px" height="50px" onclick="">
+	</figcaption></figure></td>
+
 <% if(i%3==2) { %>
  
 </tr> 
@@ -72,10 +86,8 @@ List hostHome=(List)request.getAttribute("hostHome");
 
 
 
-
-
 </div>
-
+<script src="./js/host/toucheffects.js"></script>
 
 
 
