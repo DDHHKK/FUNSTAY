@@ -135,7 +135,7 @@ public class BookingDAO {
 		}
 	}
 	
-	public Vector getBookingList(int home_num){
+	public Vector getBookingList(int home_num, String member_email){
 		List bookingList=new ArrayList();
 		List paymentList = new ArrayList();
 		Vector vector=new Vector();
@@ -147,9 +147,10 @@ public class BookingDAO {
 			//1,2 디비연결
 			con=getConnection();
 			//3 sql
-			sql="select * from booking b, payment p where b.payment_num=p.payment_num and home_num=?";
+			sql="select * from booking b, payment p where b.payment_num=p.payment_num and home_num=? and p.host_email=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, home_num);
+			pstmt.setString(2, member_email);
 			//4 rs 실행 저장
 			rs=pstmt.executeQuery();
 			//5 rs데이터 있으면 자바빈 객체 생성 gBean
@@ -171,6 +172,7 @@ public class BookingDAO {
 				pb.setMember_email(rs.getString("member_email"));
 				pb.setRequest_msg(rs.getString("request_msg"));
 				pb.setPayment_date(rs.getDate("payment_date"));
+				pb.setPayment_status(rs.getString("payment_status"));
 				pb.setHost_email(rs.getString("host_email"));
 				pb.setStorage_m(rs.getInt("storage_m"));
 				pb.setUsed_m(rs.getInt("used_m"));

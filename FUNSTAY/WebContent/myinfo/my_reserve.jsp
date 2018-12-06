@@ -1,3 +1,4 @@
+<%@page import="net.book.db.BookBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -62,10 +63,38 @@
 <!--완료된 숙소탭 시작  -->
 <div id="London" class="w3-container city">
 
+
+<%
+//int home_num 파라미터 가져오기
+int home_num=Integer.parseInt(request.getParameter("home_num"));
+BookBean bb=(BookBean)request.getAttribute("bb");
+%>
+
+
+
+
  <!--썸네일1시작 -->
+ 
   <a href="#">
   <div class="mywish_shj">
   <div id="outerbox_shj"> <img src="../img/담양1.png"> </div>
+  <table border="1">
+
+<tr><td>집번호</td><td><%=bb.getHome_num()%></td>
+    <td>집주인이메일</td><td><%=bb.getHost_email()%></td></tr>
+<tr><td>작성자</td><td><%=bb.getRoom_subject()%></td>
+    <td>작성일</td><td><%=bb.getRoom_type()%></td></tr>
+
+</td></tr> 
+</table>
+  
+  
+  
+  
+  
+  
+  
+  
   <div id="imginfo_shj">
   <div id="imgname_shj">부산광역시 해운대</div>
   <!--영수증버튼(모달박스)  -->

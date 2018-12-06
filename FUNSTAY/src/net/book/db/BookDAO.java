@@ -84,64 +84,52 @@ public class BookDAO {
 	
 	
 	
-	//완료된 숙소 제목 가져오는 메서드(sql-select문)
-    public List<BookBean> BeforeTrip(){
+	//완료된 숙소 가져오는 메서드(sql-select문)
+    public BookBean GetBeforeTrip(int home_num){
 		
 		Connection con=null;
 	    PreparedStatement pstmt=null;	
 	    ResultSet rs=null;
+	    
+	    BookBean bb=new BookBean();
 		
-		//제네릭 설정(형 지정)
-		List<BookBean> boardList=new ArrayList<BookBean>();
 		try{
 			//1,2단계 메서드 호출
 			con=getConnection();
                 
-				
-				
-				String sql="select room_subject from home";
-				
+				String sql="select room_subject from home where home_num=?";
 				
 		        pstmt=con.prepareStatement(sql);//객체생성
-		        
+		        pstmt.setInt(1,home_num);
 		        
 		        rs=pstmt.executeQuery();
 		        
-		        //5단계 저장된 결과=>하나의 글 정보는BoardBean에 저장하고
-		        //            =>여러 글 배열은 List 한 칸씩 저장
-		        while(rs.next()){ 
-		        	BookBean bb= new BookBean(); //하나의 글 정보 저장하는 MemberBean 객체 생성.
-					
-					/*bb.setNum(rs.getInt(1));//num
-					bb.setName(rs.getString(2));//name
-					bb.setPass(rs.getString(3));//pass
-					bb.setSubject(rs.getString(4));//subject
-					bb.setContent(rs.getString(5));//content
-					bb.setFile(rs.getString(6));//file
-					bb.setRe_ref(rs.getInt(7));//re_ref
-					bb.setRe_lev(rs.getInt(8));//re_lev
-					bb.setRe_seq(rs.getInt(9));//re_seq
-					bb.setReadcount(rs.getInt(10));//readcount
-					bb.setDate(rs.getDate(11));//date
+		        //5단계 저장된 결과
+		        
+		        if(rs.next()){ 
+					//첫 행 이동 열접근해서
+
+					bb.setHome_num(rs.getInt(1));//home_num
+					bb.setHost_email(rs.getString(2));//host_email
+					bb.setAddress(rs.getString(3));//address
+					bb.setRoom_type(rs.getString(4));//room_type
+					bb.setPhoto(rs.getString(5));//photo
+					bb.setRoom_subject(rs.getString(6));//room_subject
+					bb.setRoom_content(rs.getString(7));//room_content
+				/*	bb.setRe_lev(rs.getInt(8));//restroom
+					bb.setRe_seq(rs.getInt(9));//in_time
+					bb.setReadcount(rs.getInt(10));//out_time
+					bb.setDate(rs.getDate(11));//start_date   end_date  apply_date  price  home_status
 */					
-					  
-					//하나의 글의 정보를 배열 List의 한 칸에 저장.
-					boardList.add(bb);
 				}
-				
-				rs.close();
-
-
-	
-		 }catch(Exception e){
-			 e.printStackTrace();
-		 }finally{
-			 if(rs!=null) try{rs.close();}catch(SQLException ex){}
-			 if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
-			 if(con!=null) try{con.close();}catch(SQLException ex){}
-		 }
-		 return boardList;
-		
+				}catch(Exception e){
+					e.printStackTrace();
+				}finally{
+					 if(rs!=null) try{rs.close();}catch(SQLException ex){}
+					 if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+					 if(con!=null) try{con.close();}catch(SQLException ex){}
+				}
+				return bb;
 		
 		
 	}//완료된 숙소 가져오는 메서드 끝
@@ -149,7 +137,7 @@ public class BookDAO {
 
 	
 
-}
+}//BookDAO 클래스 끝
 
 
 
