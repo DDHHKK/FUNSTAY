@@ -57,24 +57,32 @@
 	
 	}else{
 	%>
+	
+	
+	
 	<div class="log_btn_sh">
-	<%=email%>님 환영합니다
-	<div class="nav_sh">
-	<%
-	
-	/* id가 admin이면 회원목록 출력 */
-	
-	if (email.equals("admin")) {
-	%>
-	</div><!-- //nav_sh -->
-<input type="button" class="log_btn_sh" value="회원목록" onclick="location.href='./MemberListAction.me'">
-<input type="button" class="log_btn_sh" value="로그아웃" onclick="location.href='./MemberLogout.me'">
-	<%
-	}else{	
-	 %>
-<input type="button" class="log_btn_sh" value="회원정보" onclick="location.href='./PassCheckForm.me'">
-<input type="button" class="log_btn_sh" value="로그아웃" onclick="location.href='./MemberLogout.me'">
-	</div><!-- //log_btn_sh -->
+	<div class="dropdown">
+		<img src="./img/default/no_profile.png" style="border-radius:50%;width:25px;height:25px;float:left;">
+		<button class="dropbtn">
+			<%=email%>
+		</button>
+		<div class="dropdown-content">
+<%
+//id가 admin이면 회원목록 출력 
+if (email.equals("admin")) {
+%>
+ 		<a href="./MemberListAction.me">회원목록</a>
+		<a href="./MemberLogout.me">로그아웃</a>
+ <%}else{%>
+		<a href="./MemberUpdate.me">프로필수정</a>
+		<a href="./Booking.bo">예약및 결제하기</a>
+		<a href="./MyReserve.bk">MY RESERVE</a>
+		<a href="./Wishlist.wi">위시리스트</a>
+		<a href="./MemberMileage.me">마일리지</a>
+		<a href="./MemberQNAlist.me">문의하기</a>
+		</div>
+	</div>
+ 	</div><!-- //log_btn_sh -->
 	<%	
 		}
 	}
