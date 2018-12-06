@@ -3,10 +3,10 @@
 <%
 String email = null;
 email = (String)session.getAttribute("email");
-System.out.println("아이디 : "+email+" -> 메인으로 이동됩니다.");
 
 if(email==null){
 //response.sendRedirect("./MemberLogin.me");
+System.out.println("아이디 : "+email+" -> 메인으로 이동됩니다.");
 %>
 <script type="text/javascript">
 	alert("로그인이 필요한 서비스 입니다");

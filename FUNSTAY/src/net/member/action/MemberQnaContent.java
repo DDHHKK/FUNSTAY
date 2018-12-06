@@ -17,15 +17,14 @@ public class MemberQnaContent implements Action{
 		System.out.println("Member QnA check execute()");
 		ActionForward forward = new ActionForward();
 		
-		HttpSession session = request.getSession();
-		String email = (String) session.getAttribute("email");
-		//email="kim@gmail.com";
+		int QnA_num = Integer.parseInt(request.getParameter("QnA_num"));
+		int re_ref = Integer.parseInt(request.getParameter("re_ref"));
 		
 		MemberDAO mdao = new MemberDAO();
-		List<QnaBean> q_list = mdao.getQnAList(email);
+		List<QnaBean> q_list = mdao.getQnAcontent(re_ref);
 		
 		request.setAttribute("q_list", q_list);
-		
+		request.setAttribute("QnA_num", QnA_num);
 		
 		forward.setRedirect(false);
 		forward.setPath("./mypage/QnAcheckContent.jsp");
