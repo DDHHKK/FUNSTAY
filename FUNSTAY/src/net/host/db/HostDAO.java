@@ -111,6 +111,7 @@ private Connection getConnection() throws Exception{
 			pstmt.setString(2, email);
 			pstmt.setString(3, hb.getAddress());
 			pstmt.setString(4, hb.getRoom_type());
+			System.out.println(hb.getPhoto());
 			pstmt.setString(5, hb.getPhoto());
 			pstmt.setString(6, hb.getRoom_subject());
 			pstmt.setString(7, hb.getRoom_content());
@@ -118,7 +119,7 @@ private Connection getConnection() throws Exception{
 			pstmt.setString(9, hb.getIn_time());
 			pstmt.setString(10, hb.getOut_time());
 			pstmt.setInt(11, hb.getPrice());
-			pstmt.setDate(12, hb.getApply_date());
+			pstmt.setString(12, hb.getStart_date());
 			pstmt.setString(13, hb.getEnd_date());
 			pstmt.setInt(14,1);
 
@@ -430,7 +431,7 @@ private Connection getConnection() throws Exception{
 		List<HostBean> hostHome = new ArrayList<>();
 		try{
 			con = getConnection();
-			String sql = "select room_subject, home_num from home where host_email=?";
+			String sql = "select room_subject, home_num,photo from home where host_email=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, host_email);
 			rs = pstmt.executeQuery();
@@ -439,6 +440,7 @@ private Connection getConnection() throws Exception{
 				HostBean hb = new HostBean();
 				hb.setHome_num(rs.getInt("home_num"));
 				hb.setRoom_subject(rs.getString("room_subject"));
+				hb.setPhoto(rs.getString("photo"));
 				hostHome.add(hb);
 			}
 		}catch(Exception e){
@@ -485,6 +487,10 @@ private Connection getConnection() throws Exception{
 		
 		
 	}
+	
+	/*public List getHostRoomList() {
+		List HostRoomList=new
+	}*/
 	
 	
 	

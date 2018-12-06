@@ -23,8 +23,6 @@
 <link href="./css/host/host_page.css" rel="stylesheet"> 
 
 
-<!--my_reserve.css  -->
-<link href="./css/myinfo/my_reserve.css" rel="stylesheet">
 </head>
 
 <body>
@@ -42,28 +40,34 @@
 
 
 <!-- 각 페이지 내용을  content 영역 안에 배치 해주세요.-->
-<div id="content_DY">
+<div id="content" style="display: block;">
 
 <%
-List getHostHomes=(List)request.getAttribute("getHostHomes");
+List hostHome=(List)request.getAttribute("hostHome");
+
 
 %>
 
-<!-- 여기서부터 페이지 내용을 적어주세요. -->
+<!-- 여기서부터 페이지 내용을 적어주세. -->
 
-<p class="letter">내 숙소관리</p>
+<h1>내 숙소관리</h1>
  
- <table>
- <%for(int i=0; i<getHostHomes.size(); i++){
-	 HostBean hb=(HostBean)getHostHomes.get(i);%>
+ <table id="host_room_list">
 
- <tr><td><img scr="./upload/<%=hb.getPhoto().split(",")[0]%>" width="100" height="100"></td></tr>
+    <%for(int i=0; i<hostHome.size(); i++){
+	 HostBean hb=(HostBean)hostHome.get(i);
+	 
+	 if(i%3==0) { %>
+	  <tr> <% } %>
+
+<td><img src="./upload/<%=hb.getPhoto().split(",")[0]%>" width="300" height="300" onclick="location.href='./HostMain.ho'"> </td>
  
-  <% }%>
+<% if(i%3==2) { %>
  
- </table>
+</tr> 
+  <% } }%> 
 
-
+ </table> 
 
 
 
@@ -105,7 +109,6 @@ function fun1() {
 
 
 <!-- 페이지내용 끝 -->
-</div>
 </div><!-- 회원 관리 페이지 'subpage' include된 페이지의 div끝 !!지우지마세요!!-->
 <div class="clear"></div>
 <hr>

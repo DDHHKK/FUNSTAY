@@ -98,9 +98,9 @@ public class HostInsertAction implements Action{
 		int home_num = hdao.insertHost(hb,email);
 		
 		
-		hdao.insertConv(cb,home_num);
+		//hdao.insertConv(cb,home_num);
 		
-		int room_num = hdao.insertRoom(rb, home_num);
+		//int room_num = hdao.insertRoom(rb, home_num);
 		
 /*		for(int i=0; i<bed_type.size(); i++)
 		{
@@ -111,7 +111,7 @@ public class HostInsertAction implements Action{
 			
 		}*/
 
-		hdao.insertBed(bb,room_num);
+		//hdao.insertBed(bb,room_num);
 
 		ActionForward forward=new ActionForward();
 		forward.setRedirect(false);
