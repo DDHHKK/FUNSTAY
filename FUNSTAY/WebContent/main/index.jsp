@@ -58,6 +58,8 @@
 	}else{
 	%>
 	
+	
+	
 	<div class="log_btn_sh">
 	<div class="dropdown">
 		<img src="./img/default/no_profile.png" style="border-radius:50%;width:25px;height:25px;float:left;">
@@ -78,7 +80,6 @@ if (email.equals("admin")) {
 		<a href="./Wishlist.wi">위시리스트</a>
 		<a href="./MemberMileage.me">마일리지</a>
 		<a href="./MemberQNAlist.me">문의확인</a>
-		<a href="./MemberLogout.me">로그아웃</a>
 		</div>
 	</div>
  	</div><!-- //log_btn_sh -->

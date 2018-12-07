@@ -1,3 +1,4 @@
+<%@page import="net.search.db.SearchBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,18 +19,28 @@ img:hover {
 </style>
 </head>
 <body>
+<%
+ 	request.setCharacterEncoding("UTF-8");
+ 	
+	SearchBean sc = (SearchBean) request.getAttribute("sc");
+	String pageNum = (String) request.getAttribute("pageNum");
+	int num = ((Integer) request.getAttribute("num")).intValue();
+	%>
+	
+	
 <div id="room_photo">
+
  <a name="사진"><h1>사진</h1></a><br>
 <table border="4" align="center">
-<tr>
+<tr> 
 <th rowspan="3" >
-<a href="#"><img src="./img/room_info/photo1.jpg" style="width:100%" alt="photo1"></a></th>
-<th><a href="#"><img src="./img/room_info/photo2.jpg" style="width:100%" alt="photo2"></a></th>
-<th><a href="#"><img src="./img/room_info/photo3.jpg" style="width:100%" alt="photo3"></a></th>
+<a href="#"> <img src="./upload/<%=sc.getPhoto().split(",")[0] %>" width="1000" height="600"></a></th>
+<th><a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[1] %>" width="500" height="300"></a></th>
+<th><a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[2] %>" width="500" height="300"></a></th>
 </tr>
 <tr>
-<th><a href="#"><img src="./img/room_info/photo4.jpg" style="width:100%" alt="photo4"></a></th>
-<th><a href="#"><img src="./img/room_info/photo5.jpg" style="width:100%" alt="photo5"></a></th>
+<th><a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[3] %>" width="500" height="300"></a></th>
+<th><a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[4] %>" width="500" height="300"></a></th>
 </tr>
 </table>
  </div>

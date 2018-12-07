@@ -31,7 +31,7 @@ public class MemberJoinAction implements Action{
 		mb.setName(multi.getParameter("name"));
 		/*mb.setProfile_photo(multi.getParameter("profile_photo"));*/
 		mb.setPhone(multi.getParameter("phone"));
-		mb.setBirth(multi.getParameter("birth_yy")+"년/"+multi.getParameter("birth_mm")+"월/"+multi.getParameter("birth_dd")+"일");
+		mb.setBirth(multi.getParameter("birth_yy")+"�뀈/"+multi.getParameter("birth_mm")+"�썡/"+multi.getParameter("birth_dd")+"�씪");
 		
 		
 		
@@ -41,7 +41,7 @@ public class MemberJoinAction implements Action{
 		mb.setProfile_photo(request.getParameter("profile_photo"));
 		mb.setPhone(request.getParameter("phone"));
 		System.out.println(mb.getPhone());
-		mb.setBirth(request.getParameter("birth_yy")+"년/"+request.getParameter("birth_mm")+"월/"+request.getParameter("birth_dd")+"일");
+		mb.setBirth(request.getParameter("birth_yy")+"�뀈/"+request.getParameter("birth_mm")+"�썡/"+request.getParameter("birth_dd")+"�씪");
 		mb.setMileage(Integer.parseInt(request.getParameter("mileage")));
 		*/
 		

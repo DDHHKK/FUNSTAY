@@ -15,8 +15,8 @@ public class HostBean {
 	private String in_time;
 	private String out_time;
 	private int price;
-	private Date start_date;
-	private Date end_date;
+	private String start_date;
+	private String end_date;
 	private int home_status;
 	private Date apply_date;
 	
@@ -93,16 +93,16 @@ public class HostBean {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public Date getStart_date() {
+	public String getStart_date() {
 		return start_date;
 	}
-	public void setStart_date(Date start_date) {
+	public void setStart_date(String start_date) {
 		this.start_date = start_date;
 	}
-	public Date getEnd_date() {
+	public String getEnd_date() {
 		return end_date;
 	}
-	public void setEnd_date(Date end_date) {
+	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
 	}
 	public Date getApply_date() {

@@ -5,6 +5,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import net.member.db.MemberBean;
 import net.review.db.ReviewBean;
 import net.review.db.ReviewDAO;
 import net.search.controller.Action;
@@ -38,19 +42,19 @@ public class RoomDetailAction implements Action{
 		System.out.println("1");
 		int count = rdao.getReviewCount();
 		System.out.println("2");
-		// 한페이지에 보여줄 글의 개수
+		// �븳�럹�씠吏��뿉 蹂댁뿬以� 湲��쓽 媛쒖닔
 		int pageSize = 10;
 
-		// 현페이지가 몇페이지인지 가져오기(기본 1페이지)
+		// �쁽�럹�씠吏�媛� 紐뉙럹�씠吏��씤吏� 媛��졇�삤湲�(湲곕낯 1�럹�씠吏�)
 		System.out.println("3");
 		if (pageNum == null)
-			pageNum = "1"; // pageNum없으면 무조건 1페이지
+			pageNum = "1"; // pageNum�뾾�쑝硫� 臾댁“嫄� 1�럹�씠吏�
 
-		// 시작글 구하기 1 11 21 31 ... <= pageNum, pageSize 조합
+		// �떆�옉湲� 援ы븯湲� 1 11 21 31 ... <= pageNum, pageSize 議고빀
 		int currentPage = Integer.parseInt(pageNum);
 		int startRow = (currentPage - 1) * pageSize + 1;
 
-		// 끝행구하기
+		// �걹�뻾援ы븯湲�
 		int endRow = currentPage * pageSize;
 		System.out.println("4");
 		int home_num = 1;
@@ -63,9 +67,9 @@ public class RoomDetailAction implements Action{
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("pageSize", pageSize);
 		request.setAttribute("currentPage", currentPage);
+//-----------------------------------------------		
 		
-		
-		
+	
 		ActionForward forward = new ActionForward();
 		forward.setPath("./RoomDetailAction.sc");
 		forward.setRedirect(false);

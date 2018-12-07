@@ -20,7 +20,7 @@
 	position : relative;}
 
  
-#host3 { top:1015px; 
+#host3 { top:1060px; 
     left: 20px;
    	margin : 60px 0px 0px 70px;
 	padding-right : 100px;
@@ -109,7 +109,7 @@
 
 	
 .sel {padding : 7px;
-	margin : 7px;}
+	  margin : 7px;}
 
 #text11 {
 	padding : 5px;
@@ -193,15 +193,6 @@ b {font-size: 1.1em;}
 span{
 	font-size:0.8em;
 }
-
-h5 {
-	margin-top:6px;
-}
-
-
-.sel2 {padding : 7px;
-	margin-top : -10px;}
-
 /* ------------------호스트동록메인----------------- */
 
 

@@ -1,4 +1,5 @@
 <!-- http://kirinyaga.tistory.com/21 스크롤 -->
+<%@page import="net.member.db.MemberBean"%>
 <%@page import="net.review.db.ReviewBean"%>
 <%@page import="java.util.List"%>
 <%@page import="net.search.db.SearchBean"%>
@@ -51,6 +52,7 @@
 	SearchBean sc = (SearchBean) request.getAttribute("sc");
 	String pageNum = (String) request.getAttribute("pageNum");
 	int num = ((Integer) request.getAttribute("num")).intValue();
+	MemberBean mb = (MemberBean) request.getAttribute("mb");
 	%>
 			
 <!-- room_wrapper -->
@@ -64,6 +66,7 @@
  	
  	<a href="#"><img src="./img/메일.jpg" alt="mail" align="right"></a>
  	<a href="#"><img src="./img/smile.png" alt="smile" align="right"></a>
+ 	<a href="#"><img src="./img/<%=mb.getProfile_photo()%>" width="130" height="130"></a>
  	
  	
 <!-- room_content --> 	

@@ -64,7 +64,8 @@ int restroom = Integer.parseInt(request.getParameter("restroom"));
 int price =  Integer.parseInt(request.getParameter("price"));
 String in_time = request.getParameter("in_time");
 String out_time = request.getParameter("out_time"); 
-int end_date = Integer.parseInt(request.getParameter("end_date")); 
+String start_date =request.getParameter("start_date"); 
+String end_date = request.getParameter("end_date"); 
 String[] convenience=request.getParameterValues("convenience");
 String address = request.getParameter("address"); 
 
@@ -105,7 +106,8 @@ int re_room =  Integer.parseInt(request.getParameter("re_room"))+1;
 <tr><td class="td1">1박당 가격  </td><td class="td2"><input type="text" name="price" value="<%=price %>" readonly></td></tr>
 <tr><td class="td1">체크인 가능 시간  </td><td class="td2"><input type="text" name="in_time" value="<%=in_time %>" readonly> </td></tr>
 <tr><td class="td1">체크아웃 가능 시간  </td><td class="td2"><input type="text" name="out_time" value="<%=out_time %>" readonly></td></tr>
-<tr><td class="td1">호스팅 끝낼 날짜  </td><td class="td2"><input type="text" name="end_date" value="<%=end_date %>" readonly></td></tr>
+<tr><td class="td1">호스팅 시작날짜  </td><td class="td2"><input type="text" name="start_date" value="<%=start_date %>" readonly></td></tr>
+<tr><td class="td1">호스팅 끝낼날짜  </td><td class="td2"><input type="text" name="end_date" value="<%=end_date %>" readonly></td></tr>
 <tr><td class="td1">편의시설 </td><td class="td2">
 <%for(int i=0; i<convenience.length; i++){%>
 <%
