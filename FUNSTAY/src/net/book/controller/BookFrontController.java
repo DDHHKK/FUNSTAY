@@ -37,13 +37,6 @@ public class BookFrontController extends HttpServlet {
 		ActionForward forward=null;
 		Action action=null;
 		if(command.equals("/ReviewWrite.bk")){
-			//response.sendRedirect("./myinfo/my_reserve.jsp");
-			// forward 이동방식  A -> B 이동
-			//                A에 있는 request 정보를 가지고 B로 이동
-			//                주소줄에는 A유지 => 실행화면 B가 보임
-//			RequestDispatcher dispatcher=
-//			 request.getRequestDispatcher("./myinfo/my_reserve.jsp");
-//			dispatcher.forward(request, response);
 			
 			forward=new ActionForward();
 			forward.setRedirect(false);   //  true/false
@@ -67,6 +60,10 @@ public class BookFrontController extends HttpServlet {
 			}
 			
 			
+		}else if(command.equals("/ReserveCancel.bk")){
+			forward=new ActionForward();
+			forward.setRedirect(false);   //  true/false
+			forward.setPath("./myinfo/reserveCancel.jsp");
 		}
 		
 		//이동

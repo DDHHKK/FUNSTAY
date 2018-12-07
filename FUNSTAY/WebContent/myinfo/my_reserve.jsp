@@ -69,14 +69,13 @@
 <div id="London" class="w3-container city">
 
 
-
-
-
-
  <!--썸네일1시작 -->
- 
+  <a href="#">
   <div class="mywish_shj">
   <div id="outerbox_shj"> <img src="../img/담양1.png"> </div>
+
+
+
   
 <%
 
@@ -96,10 +95,10 @@ System.out.println(bb.getCheck_in());
 %>
   <table border="1">
 
-<tr><td>sadf</td><td><%=hb.getRoom_subject()%></td>
-    <td>sadf</td><td><%=bb.getCheck_in()%></td></tr>
-<tr><td>asdf</td><td><%=bb.getCheck_out()%></td>
-    <td>asdf</td><td><%=pb.getSum_price()%></td></tr>
+<tr><td>방제목</td><td><%=hb.getRoom_subject()%></td>
+    <td>체크인날짜</td><td><%=bb.getCheck_in()%></td></tr>
+<tr><td>체크아웃날짜</td><td><%=bb.getCheck_out()%></td>
+    <td>총금액</td><td><%=pb.getSum_price()%></td></tr>
 
 </td></tr> 
 </table>
@@ -113,6 +112,7 @@ System.out.println(bb.getCheck_in());
   
   
   
+
   <div id="imginfo_shj">
   <div id="imgname_shj">부산광역시 해운대</div>
   <!--영수증버튼(모달박스)  -->
@@ -142,7 +142,7 @@ System.out.println(bb.getCheck_in());
   </div>
  <!--영수증 버튼 끝  -->  
   <!--리뷰쓰기 버튼 -->
-  <button onclick="location.href='reviewWrite.jsp'" class="review_butt_DY">리뷰쓰기</button>
+  <button onclick="location.href='./ReviewWrite.bk'" class="review_butt_DY">리뷰쓰기</button>
   <!--리뷰쓰기 버튼 끝  -->
   </div>
   </div>
@@ -162,7 +162,7 @@ System.out.println(bb.getCheck_in());
   </div>
  <!--영수증 버튼 끝  -->  
   <!--리뷰쓰기 버튼 -->
-  <button onclick="location.href='reviewWrite.jsp'" class="review_butt_DY">리뷰쓰기</button>
+  <button onclick="location.href='./ReviewWrite.bk'" class="review_butt_DY">리뷰쓰기</button>
   <!--리뷰쓰기 버튼 끝  -->
   </div>
   </div>
@@ -183,7 +183,7 @@ System.out.println(bb.getCheck_in());
   </div>
  <!--영수증 버튼 끝  -->  
   <!--리뷰쓰기 버튼 -->
-  <button onclick="location.href='reviewWrite.jsp'" class="review_butt_DY">리뷰쓰기</button>
+  <button onclick="location.href='./ReviewWrite.bk'" class="review_butt_DY">리뷰쓰기</button>
   <!--리뷰쓰기 버튼 끝  -->
   </div>
   </div>
@@ -203,7 +203,7 @@ System.out.println(bb.getCheck_in());
   </div>
  <!--영수증 버튼 끝  -->  
   <!--리뷰쓰기 버튼 -->
-  <button onclick="location.href='reviewWrite.jsp'" class="review_butt_DY">리뷰쓰기</button>
+  <button onclick="location.href='./ReviewWrite.bk'" class="review_butt_DY">리뷰쓰기</button>
   <!--리뷰쓰기 버튼 끝  -->
   </div>
   </div>
@@ -222,7 +222,7 @@ System.out.println(bb.getCheck_in());
   </div>
  <!--영수증 버튼 끝  -->  
   <!--리뷰쓰기 버튼 -->
-  <button onclick="location.href='reviewWrite.jsp'" class="review_butt_DY">리뷰쓰기</button>
+  <button onclick="location.href='./ReviewWrite.bk'" class="review_butt_DY">리뷰쓰기</button>
   <!--리뷰쓰기 버튼 끝  -->
   </div>
   </div>
@@ -257,7 +257,7 @@ System.out.println(bb.getCheck_in());
   </div>
   <!-- 영수증 버튼 끝  -->
   <!--예약취소 버튼 -->
-  <button class="cancel_butt_DY" onclick="button_event();">예약취소</button>
+  <button class="cancel_butt_DY" onclick="location.href='./ReserveCancel.bk'">예약취소</button>
   <!--예약취소 버튼 끝  -->
   </div>
   </div>
@@ -277,7 +277,7 @@ System.out.println(bb.getCheck_in());
   </div>
   <!-- 영수증 버튼 끝  -->
   <!--예약취소 버튼 -->
-  <button class="cancel_butt_DY" onclick="button_event();">예약취소</button>
+  <button class="cancel_butt_DY" onclick="location.href='./ReserveCancel.bk'">예약취소</button>
   <!--예약취소 버튼 끝  -->
   </div>
   </div>
@@ -297,7 +297,7 @@ System.out.println(bb.getCheck_in());
   </div>
   <!-- 영수증 버튼 끝  -->
   <!--예약취소 버튼 -->
-  <button class="cancel_butt_DY" onclick="button_event();">예약취소</button>
+  <button class="cancel_butt_DY" onclick="location.href='./ReserveCancel.bk'">예약취소</button>
   <!--예약취소 버튼 끝  -->
   </div>
   </div>
