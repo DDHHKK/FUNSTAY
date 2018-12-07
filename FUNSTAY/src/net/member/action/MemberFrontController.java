@@ -15,13 +15,13 @@ public class MemberFrontController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String requestURI = request.getRequestURI();
-		System.out.println("URL 주소:" + requestURI);
+		//System.out.println("URL 주소:" + requestURI);
 
 		String ContextPath = request.getContextPath();
-		// System.out.println("������Ʈ �̸� ����:"+ContextPath.length()); //>>8��
+		// System.out.println("������Ʈ �̸� ����:"+ContextPath.length()); //>>
 		String command = requestURI.substring(ContextPath.length());
 
-		System.out.println("가상의 주소" + command);//>>/*.me
+		//System.out.println("가상의 주소" + command);//>>/*.me
 
 		ActionForward forward = null;
 		Action action = null;
@@ -200,7 +200,7 @@ public class MemberFrontController extends HttpServlet {
 			// find ID
 		} else if (command.equals("/find_id.me")) {
 			forward = new ActionForward();
-			forward.setPath("./id_pw_find/FindForm_id.jsp");
+			forward.setPath("./id_pw_find/findform_id.jsp");
 			forward.setRedirect(false);
 		} else if (command.equals("/Id_FindAction.me")) {
 			action = new Id_FindAction();
@@ -213,7 +213,7 @@ public class MemberFrontController extends HttpServlet {
 			// find PASS
 		} else if (command.equals("/find_pw.me")) {
 			forward = new ActionForward();
-			forward.setPath("./id_pw_find/FindForm_pw.jsp");
+			forward.setPath("./id_pw_find/findform_pw.jsp");
 			forward.setRedirect(false);
 		} else if (command.equals("/Pw_FindAction.me")) {
 			action = new Pw_FindAction();

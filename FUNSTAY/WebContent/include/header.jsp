@@ -140,7 +140,7 @@ if(session.getAttribute("email")==null){
   <!-- 닫기버튼 -->
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <!-- 로고스타일 -->    
+  <!-- logo style -->    
       <div id="logo_sh">FUNSTAY</div>
     </div>
 
