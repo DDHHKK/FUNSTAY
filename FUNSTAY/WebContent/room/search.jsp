@@ -1,4 +1,5 @@
-﻿<%@page import="net.search.db.SearchBean"%>
+﻿<%@page import="net.host.db.HostBean"%>
+<%@page import="net.search.db.SearchBean"%>
 <%@page import="net.search.Action.SearchListAction"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -227,7 +228,7 @@
 		request.setCharacterEncoding("UTF-8");
 	%>
 	
-	
+
 	
 	<%
 		List SearchList = (List) request.getAttribute("boardList");
@@ -251,7 +252,7 @@
 		<tr><td>Price</td><td><%=sc.getPrice() %></td></tr>
 		<tr><td>In_time</td><td><%=sc.getIn_time() %></td></tr>
 		<tr><td>Out_time</td><td><%=sc.getOut_time() %></td></tr>
-		<tr><td>Photo</td><td><%=sc.getPhoto() %></td></tr>
+		<tr rows="2"><td><img src="./upload/<%=sc.getPhoto().split(",")[0] %>" width="130" height="130"></td><td>
 		<tr><td>Restroom</td><td><%=sc.getRestroom() %></td></tr> 
 		<tr><td>Room_content</td><td><%=sc.getRoom_content() %></td></tr>
 		<tr><td>Room_subject</td><td><%=sc.getRoom_subject() %></td></tr>
@@ -266,12 +267,6 @@
 			}
 		%>  
 		
-
-
-
-
-
-
 
 <%
 		if (count != 0) {
