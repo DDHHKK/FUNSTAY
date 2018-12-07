@@ -28,7 +28,8 @@ $(document).ready(function(){
 MemberBean mb = new MemberBean(); 
 String email = (String)session.getAttribute("email");
 mb=md.getMember(email);
-
+int hostCheck = 0;
+hostCheck = (int)session.getAttribute("hostCheck");
 %>
 <section class="sec01_WS">
 <table>
@@ -59,9 +60,7 @@ if(email==null){
 	<li><a href="./MemberMileage.me">마일리지</a></li>
 	<li><a href="./MemberQNAlist.me">문의하기</a></li>
 	<%
-	int hostCheck = 0;
-	hostCheck = (int)session.getAttribute("hostCheck");
-	if(email.equals("admin")){
+	}if(email.equals("admin")){
 	%>
 	
 	<li><a href="./MemberListAction.me">회원목록</a></li>
@@ -73,11 +72,9 @@ if(email==null){
 	<li><a href="#">숙소 삭제(없음)</a></li>
 	<li><a href="#">예약 관리(없음)</a></li>
 	<li><a href="./HostCash.ho">MY CASH</a></li>
-	<%} 
-	}
-	%>
+	<%} %>
 	
-	<li><a href="./MemberLogout.me">로그아웃</a></li>
+	<li><a href="./MemberLogout2.me">로그아웃</a></li>
   </ul>
   </div>
   <a href="javascript:void(0)" onclick="document.getElementById('light1').style.display='none';document.getElementById('fade1').style.display='none'"><p id="font_2_WS">닫기</p></a>

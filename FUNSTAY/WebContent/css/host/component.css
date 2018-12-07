@@ -32,7 +32,7 @@
 	left: 0;
 	padding: 20px;
 	/* background: #cc1d1d; */
-	background-color: rgba(204,204,204,0.7)
+	background-color: rgba(204,29,29,0.9)
 }
 
 /* .grid figcaption h3 {
@@ -41,21 +41,14 @@
 	color: #fff;
 }
  */
-/* .grid figcaption span:before {
+.grid figcaption span:before {
 	content: 'by ';
-} */
+}
 
 .grid figcaption img {
 	padding: 5px 10px;
 	display: inline-block;
-	margin : 0px 15px;
 } 
-
-.grid figcaption img:hover{
-	width : 55px;height: 55px;
-		
-}
-
 
 /* Individual Caption Styles */
 
@@ -65,11 +58,11 @@
 	overflow: hidden;
 }
 
-/* .cs-style-3 figure img {
+.cs-style-3 figure img {
 	-webkit-transition: -webkit-transform 0.4s;
 	-moz-transition: -moz-transform 0.4s;
 	transition: transform 0.4s;
-} */
+}
 
 /* .no-touch .cs-style-3 figure:hover img,
 .cs-style-3 figure.cs-hover img {
@@ -106,12 +99,12 @@
 	transition: transform 0.4s, opacity 0.1s;
 }
 
-/* .cs-style-3 figcaption a {
+.cs-style-3 figcaption a {
 	position: absolute;
 	bottom: 20px;
 	right: 20px;
 }
- */
+
 
 
 @media screen and (max-width: 31.5em) {

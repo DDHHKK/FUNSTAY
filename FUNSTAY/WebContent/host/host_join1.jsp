@@ -233,20 +233,10 @@ $(function() {
 
 
 <!-- ---------in_time/out_time----------- -->
-	    	
-<tr><td><b>숙소 예약가능한 기간을 선택하세요.</b><br>
-<h5>※실제 예약은 숙소 등록 3일 후부터 가능합니다.</h5></td></tr>	   
-
-<tr><td class="td"><b>예약기간</b>
-<select class="sel2" name="end_date">
- <option selected>기간을 선택하세요.</option>
- <option>30</option>
- <option>100</option>
- <option>180</option>
- <option>365</option>
-</select> /일</td></tr>
-	    		   
-
+<tr><td><b>호스팅 시작날짜와 끝낼 날짜를 적어주세요.</b></td></tr>
+<tr><td class="td"><b>시작날짜 </b> <input type="date" name="start_date" class="sel" ><br><br>
+	    		   <b>끝낼날짜 </b> <input type="date" name="end_date" class="sel" >
+</td></tr>
 </table>
 
 
