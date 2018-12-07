@@ -71,9 +71,10 @@ List hostHome=(List)request.getAttribute("hostHome");
 <td><figure><img src="./upload/<%=hb.getPhoto().split(",")[0]%>" width="300" height="300"> 
 	<figcaption>
 
-		<a href="./room_info"><img src="./img/icon/paper.png" width="50px" height="50px"></a>
-		<a href="./HostModify.ho?home_num=<%=hb.getHome_num()%>"><img src="./img/icon/pen.png" width="50px" height="50px"></a>
-		<a href="./HostDelete.ho??home_num=<%=hb.getHome_num()%>"><img src="./img/icon/basket.png" width="50px" height="50px"></a>
+		<a href="./room_info"><img src="./img/icon/paper.png" width="45px" height="45px"></a>
+		<a href="./room_info"><img src="./img/icon/calendar.png" width="45px" height="45px"></a>
+		<a href="./HostModify.ho?home_num=<%=hb.getHome_num()%>"><img src="./img/icon/pen.png" width="45px" height="45px"></a>
+		<a href="./HostDelete.ho??home_num=<%=hb.getHome_num()%>"><img src="./img/icon/basket.png" width="45px" height="45px"></a>
 	</figcaption></figure></td>
 
 <% if(i%3==2) { %>
