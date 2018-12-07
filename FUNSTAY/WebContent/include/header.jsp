@@ -45,14 +45,15 @@ mb=md.getMember(email);
 if(email==null){
 	%>
 <td><button class="btn_remove" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">로그인</button>
+<!-- <button class="btn_remove" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">회원가입</button> -->
 <%
 }else{
 	%>
-	<td><a href="javascript:void(0)" onclick="document.getElementById('light1').style.display='block';document.getElementById('fade1').style.display='block'"><img src="./img/<%=mb.getProfile_photo()%>" id="img_1_WS"></a>
+	<td><a href="javascript:void(0)" onclick="document.getElementById('light1').style.display='block';document.getElementById('fade1').style.display='block'"><img src="./upload/<%=mb.getProfile_photo()%>" id="img_1_WS"></a>
  <div id="light1" class="white_content_1">
   <div>
   <ul id="list_1_WS">
-	<li><a href="./MemberUpdate.me">프로필수정</a></li>
+	<li><a href="./PassCheckForm.me">프로필수정</a></li>
 	<li><a href="./Booking.bo">예약및 결제하기</a></li>
 	<li><a href="./MyReserve.bk">MY RESERVE</a></li>
 	<li><a href="./Wishlist.wi">위시리스트</a></li>
@@ -63,19 +64,15 @@ if(email==null){
 	hostCheck = (int)session.getAttribute("hostCheck");
 	if(email.equals("admin")){
 	%>
-	
 	<li><a href="./MemberListAction.me">회원목록</a></li>
 	<li><a href="./FAQ_boardList.fa">FAQ 관리</a></li>	
-	<% }	
-	else if(hostCheck==1){%>
-	
+	<% }else if(hostCheck==1){%>
 	<li><a href="./HostPassCheckAction.ho">숙소 정보 수정</a></li>
 	<li><a href="#">숙소 삭제(없음)</a></li>
 	<li><a href="#">예약 관리(없음)</a></li>
 	<li><a href="./HostCash.ho">MY CASH</a></li>
 	<%} 
-	}
-	%>
+%>
 	
 	<li><a href="./MemberLogout.me">로그아웃</a></li>
   </ul>
@@ -86,11 +83,14 @@ if(email==null){
 </td>
 <%mb=md.getMember(email);%>
 <td><%=mb.getName()%>님 반갑습니다!</td>
+<%
+} %>
 
 
 <!-- 로그인 -->
 <div id="id01" class="modal">
-  <form class="modal-content animate" action="./MemberLoginAction2.me" method="post">
+<div class="modal_sh">
+  <form class="modal-content animate" action="./MemberLoginAction.me" method="post">
   <!-- 닫기버튼 스타일 -->
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -100,23 +100,83 @@ if(email==null){
     <div class="container">
      <div class="join_box">
   <!-- 이메일(아이디)입력 폼 -->   
-      <label for="uname"><b>ID</b></label>
-      <input type="text" placeholder="ID를 email형식으로 입력 해주세요" name="email" required>
+      <label for="email"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="email" required>
   <!-- 비밀번호 입력 폼 -->
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Password를 입력하세요" name="pass" id="myInput" required>
+      <label for="pass"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="pass" id="myInput" required>
       </div>
   <!-- caps lock -->
-     <p id="text">WARNING! Caps lock is ON.</p> 
+     <p id="caps">WARNING! Caps lock is ON.</p> 
+  <!-- SNS -->
+      <div id="col_box">   
+	  <div class="col">
+       <!--  <a href="#" class="sns_btn naver">
+          <i class="fa fa-twitter fa-fw"></i>Naver</a> -->
+<!-- 카카오 연동 로그인 -->
+  
+<!-- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<a id="kakao-login-btn"></a>
+	<a href="http://developers.kakao.com/logout"></a>
+	<script type='text/javascript'>
+  //<![CDATA[
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('5bd0699811ddfc0b8ef260a07e7c9163');
+    // 카카오 로그인 버튼을 생성합니다.
+    Kakao.Auth.createLoginButton({
+      container: '#kakao-login-btn',
+      success: function(authObj) {
+        alert(JSON.stringify(authObj));
+      },
+      fail: function(err) {
+         alert(JSON.stringify(err));
+      }
+    });
+    </script> -->
+       
+      </div>
+      <div class="col">
+<!--         <a href="#" class="sns_btn google">
+          <i class="fa fa-google fa-fw"></i>Google</a> -->
+ <!-- 네이버 연동 로그인 -->
+
+  <!-- <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  네이버아이디로로그인 버튼 노출 영역
+  <div id="naver_id_login" class="naver_box"></div>
+  //네이버아이디로로그인 버튼 노출 영역
+  <script type="text/javascript">
+  	var naver_id_login = new naver_id_login("y_Gput02XwU2j3ZEUW3w", "http://localhost:8080/");
+  	var state = naver_id_login.getUniqState();
+  	naver_id_login.setButton("green", 3,48);
+  	naver_id_login.setDomain("http://localhost:8080/");
+  	naver_id_login.setState(state);
+  	naver_id_login.setPopup();
+  	naver_id_login.init_naver_id_login();
+  </script> -->
+          
+      </div> 
+       </div> 
   <!-- 전송버튼 -->     
       <button type="submit" class="subtn"><a>로그인</a></button>
-  <!-- 아이디저장  --> 
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> ID기억하기
-      </label>
-  <!-- 비밀번호 찾기 -->    
-      <span class="psw"><a href="#">패스워드를 잊어버리셨나요?</a></span>
-    </div>
+      <br><br>
+        <!-- 아이디저장  --> 
+<!--       <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label> -->
+      <br>
+  <!-- 비밀번호 찾기 --> 
+   <div id="forget_sh">
+ 		 <div class="forget">
+  		<a href="./find_pw.me">Forget password?</a>
+  		</div> 
+  
+  <!-- 아이디 찾기 -->
+ 	 	 <div class="forget">
+  		<a href="./find_id.me">Forget email?</a>
+  		</div><!-- //forget -->
+  	</div><!-- //forget_sh --> 
+    </div><!-- container -->
 
 <!-- 취소버튼 사용유무    
 <div class="container" style="background-color:#f1f1f1">
@@ -124,14 +184,10 @@ if(email==null){
       class="cancelbtn">Cancel</button> 
     </div> -->
   </form>
-</div>
+ </div><!-- modal_sh -->
+</div><!-- modal -->
 </td>
-
-
-
-
-<%
-if(session.getAttribute("email")==null){
+<%if(session.getAttribute("email")==null){
 	%>
 <td><button class="btn_remove" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">회원가입</button>
 <% 
@@ -139,11 +195,11 @@ if(session.getAttribute("email")==null){
 %>
 <!-- 회원가입 -->
 <div id="id02" class="modal">
-  <form class="modal-content animate" action="./MemberJoinAction2.me" method="post">
+  <form class="modal-content animate" action="./MemberJoinAction.me" method="post" name="fr" enctype="multipart/form-data">
   <!-- 닫기버튼 -->
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <!-- logo style -->    
+  <!-- 로고스타일 -->    
       <div id="logo_sh">FUNSTAY</div>
     </div>
 
@@ -151,53 +207,71 @@ if(session.getAttribute("email")==null){
     <div class="join_box">
 <!-- 이메일(아이디)입력 폼 -->    
       <i class="fa fa-envelope icon"></i>
-      <label for="email"><b>ID</b></label>
-      <input type="text" placeholder="ID를 email형식으로 입력 해주세요" name="email" required>
+      <label for="email"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" name="email">
+<!-- 이메일 중복체크 입력 폼 -->       
+      <div>
+      <input type="button" value="E-mail중복체크" class="e_check" onclick="idcheck()">
+      </div>
 <!-- 비밀번호 입력 폼 -->      
+<div id="clear"></div>
 <i class="fa fa-key icon"></i>
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Password 입력 해주세요" name="pass" id="myInput1" required>
-<!-- 비밀번호 보이게 -->
-      <input type="checkbox" onclick="myFunction()" id="chb_WS">Password 보기<br>
+      <label for="pass"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="pass" id="myInput1">
+<!-- 비밀번호 보이게
+      <input type="checkbox" onclick="myFunction()">Show Password<br> -->
 <!-- 비밀번호 확인 폼-->
 <i class="fa fa-key icon"></i>
-      <label for="psw-repeat"><b>Password 재확인</b></label>
-      <input type="password" placeholder="Password 다시 한번더 입력 해주세요" name="psw-repeat" required>
-      <!-- 이름 폼 -->      
-<i class="fa fa-drivers-license"></i>
-      <label for="name"><b>이름</b></label>
-      <input type="text" placeholder="이름을 입력해주세요" name="name" id="myname" required>    
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="pass2" onblur="passchk()">
+	   <input type="text" class="psw-repeat" name="chk" value="비밀번호를 입력하세요" readonly="readonly">
+<!-- 이름 폼 -->      
+<i class="fa fa-user-o"></i>
+      <label for="name"><b>NAME</b></label>
+      <input type="text" placeholder="Enter Name" name="name" id="myname">    
 <!-- 생년월일 폼 -->      
 <i class="fa fa-heart icon"></i>
-      <label for="birth"><b>생년월일</b></label><br> 
-      <input type="text" name="birth_yy" class="birth" placeholder="ex) 2018"required> 
+      <label><b>birth</b></label><br> 
+      <select name="birth_yy" class="birth">
+<!--년-->      	
+      <%for(int i=2018; i>=1900; i--){ %>
+       <option value="<%=i %>"><%=i %></option>
+       <%} %>
+     </select>
 
-      <input type="text" name="birth_mm" class="birth" placeholder="01"required>
-
-      <input type="text" name="birth_dd" class="birth" placeholder="01" required><br>  
+      <select name="birth_mm" class="birth">
+<!--월-->
+      <%for(int i=1; i<=12; i++){ %>
+       <option value="<%=i %>"><%=i %></option>
+       <%} %>
+      </select> 
+<!--일-->     
+      <select name="birth_dd" class="birth">
+      <%for(int i=1; i<=31; i++){ %>
+       <option value="<%=i %>"><%=i %></option>
+       <%} %>
+      </select> 
+      <br>
 <!-- 폰번호 폼 -->      
 <i class="fa fa-phone icon"></i>
-      <label for="phone"><b>전화번호</b></label>
-      <input type="text" placeholder="전화번호를 입력 해주세요" name="phone" required><br>   
+      <label for="phone"><b>phone</b></label>
+      <input type="text" placeholder="Enter phone number" name="phone"><br>   
       
-<!-- 아이디저장일단 주석(회원가입은 자동 저장이 필요없으므로) -->
-      <!--<label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> 자동저장
-      </label>-->
 <!-- 약관동의 -->
-      <p>계정을 생성하면 이용약관 및 개인정보 보호 정책에 동의하게 됩니다 <a href="#" style="color:dodgerblue"><br>동의약관</a>.</p>
+       <p>이용약관 및 개인정보 보호 정책에 동의하여 주십시요 <br><input type="checkbox" name="req"> 개인정보 수집 및 이용에 동의합니다. 
+       <a href="./member/agree.jsp" style="color:dodgerblue">동의약관</a>.</p>
 <!-- 전송버튼 -->
       <div class="clearfix">
-        <button type="submit" class="subtn"><a>가입완료</a></button>
+        <button type="button" class="subtn" onclick="regChk()"><a>가입완료</a></button>
         </div>
 <!-- 취소버튼 사용 유무        
 <div class="container" style="background-color:#f1f1f1">
 <button type="button" onclick="document.getElementById('id02').style.display='none'" 
  class="cancelbtn">Cancel</button>  -->
-      </div>
-    </div>
+      </div><!-- //join_box -->
+    </div><!-- //container -->
   </form>
-</div>
+</div><!-- //modal -->
 </td>
 </tr>
 </table>

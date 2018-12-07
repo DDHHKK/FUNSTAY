@@ -106,7 +106,8 @@ text-align: center;
 			<td class="p_td"><%=mb.getEmail()%></td>
 			<td class="p_td"><%=mb.getPass()%></td>
 			<td class="p_td"><%=mb.getName()%></td>
-			<td class="p_td"><%=mb.getProfile_photo()%></td>
+			<%-- <td class="p_td"><%=mb.getProfile_photo()%></td> --%>
+			<td class="p_td"><img src="./upload/<%=mb.getProfile_photo()%>"></td>
 			<td class="p_td"><%=mb.getPhone()%></td>
 			<td class="p_td"><%=mb.getBirth()%></td>
 			<td class="p_td"><%=mb.getMileage()%></td>
