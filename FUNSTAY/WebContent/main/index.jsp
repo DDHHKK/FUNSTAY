@@ -80,6 +80,7 @@ if (email.equals("admin")) {
 		<a href="./Wishlist.wi">위시리스트</a>
 		<a href="./MemberMileage.me">마일리지</a>
 		<a href="./MemberQNAlist.me">문의확인</a>
+		<a href="./MemberLogout.me">로그아웃</a>
 		</div>
 	</div>
  	</div><!-- //log_btn_sh -->
