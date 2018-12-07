@@ -16,7 +16,7 @@ import net.search.db.SearchDAO;
 public class SearchListAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		
 		System.out.println("SearchListAction execute()");
 
 		request.setCharacterEncoding("UTF-8");
@@ -39,7 +39,7 @@ public class SearchListAction implements Action{
 
 	
 		int endRow = currentPage * pageSize;
-
+		
 		List<SearchBean> SearchList = null;
 		if (count != 0)
 			SearchList = bdao.getSearchList(startRow, pageSize);
@@ -49,8 +49,7 @@ public class SearchListAction implements Action{
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("pageSize", pageSize);
 		request.setAttribute("currentPage", currentPage);
-
-	
+		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./room/search.jsp");
 		forward.setRedirect(false);
