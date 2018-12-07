@@ -18,6 +18,7 @@ import net.host.action.Action;
 import net.host.action.ActionForward;
 import net.host.db.HostBean;
 import net.host.db.HostDAO;
+import net.member.db.MemberBean;
 import net.room.db.RoomBean;
 
 
@@ -60,6 +61,9 @@ public class HostInsertAction implements Action{
 		RoomBean rb=new RoomBean();
 		ConvBean cb=new ConvBean();
 		BedBean bb=new BedBean();
+
+MemberBean mb = new MemberBean();
+
 		
 		hb.setRoom_subject(multi.getParameter("room_subject"));
 		hb.setRoom_content(multi.getParameter("room_content"));
@@ -68,17 +72,17 @@ public class HostInsertAction implements Action{
 		hb.setPrice(Integer.parseInt(multi.getParameter("price")));
 		hb.setIn_time(multi.getParameter("in_time"));
 		hb.setOut_time(multi.getParameter("out_time"));
-		hb.setStart_date(multi.getParameter("start_date"));
-		hb.setEnd_date(multi.getParameter("end_date"));
 		hb.setAddress(multi.getParameter("address"));
-	
+
+mb.setProfile_photo(multi.getParameter("profile_photo"));
+
 		rb.setRe_room(Integer.parseInt(multi.getParameter("re_room")));
 		
 		
 		//cb.setEssential(Integer.parseInt(multi.getParameter("essential")));
 		//cb.setDisabled(Integer.parseInt(multi.getParameter("disabled")));
 		
-		
+		int end_date2=Integer.parseInt(multi.getParameter("end_date"));
 		
 	 
 		hb.setPhoto(multi.getFilesystemName("photo1")+","
@@ -95,7 +99,7 @@ public class HostInsertAction implements Action{
 				hdao.HostUser(email);
 			}
 	
-		int home_num = hdao.insertHost(hb,email);
+		int home_num = hdao.insertHost(hb,email,end_date2);
 		
 		
 		//hdao.insertConv(cb,home_num);

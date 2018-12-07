@@ -33,8 +33,8 @@ public class MemberUpdateAction implements Action{
 		MemberBean mb = new MemberBean();
 		
 		String filePath = null;
-		if(request.getRealPath("/img")!=null){
-			filePath=request.getRealPath("/img");
+		if(request.getRealPath("/upload")!=null){
+			filePath=request.getRealPath("/upload");
 		}
 		
 	
@@ -61,8 +61,9 @@ public class MemberUpdateAction implements Action{
 		if(check == 1){
 			//수정성공시
 			forward = new ActionForward();
-			forward.setPath("./Main.me");
+			forward.setPath("./MemberUpdateForm.me");
 			forward.setRedirect(true);
+			return forward;
 		}else if(check == 0){
 			//비밀번호 틀림
 			response.setContentType("text/html; charset=UTF-8");
@@ -83,6 +84,6 @@ public class MemberUpdateAction implements Action{
 			out.close();
 			return null;
 		}
-		return null;
+		
 	}
 }

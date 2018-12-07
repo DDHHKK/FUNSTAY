@@ -49,7 +49,7 @@ if(email==null){
 <%
 }else{
 	%>
-	<td><a href="javascript:void(0)" onclick="document.getElementById('light1').style.display='block';document.getElementById('fade1').style.display='block'"><img src="./img/<%=mb.getProfile_photo()%>" id="img_1_WS"></a>
+	<td><a href="javascript:void(0)" onclick="document.getElementById('light1').style.display='block';document.getElementById('fade1').style.display='block'"><img src="./upload/<%=mb.getProfile_photo()%>" id="img_1_WS"></a>
  <div id="light1" class="white_content_1">
   <div>
   <ul id="list_1_WS">
@@ -140,7 +140,7 @@ if(session.getAttribute("email")==null){
   <!-- 닫기버튼 -->
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <!-- 로고스타일 -->    
+  <!-- logo style -->    
       <div id="logo_sh">FUNSTAY</div>
     </div>
 

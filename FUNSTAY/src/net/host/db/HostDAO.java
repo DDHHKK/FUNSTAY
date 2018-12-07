@@ -76,7 +76,7 @@ private Connection getConnection() throws Exception{
 	
 	
 	@SuppressWarnings("resource")
-	public int insertHost(HostBean hb,String email) {
+	public int insertHost(HostBean hb,String email,int end_date2) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
