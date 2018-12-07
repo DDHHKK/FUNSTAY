@@ -18,7 +18,7 @@ import net.host.action.HostJoinAction;
 import net.host.action.HostPageAction;
 import net.host.action.HostPassCheckAction;
 import net.host.action.HostRoomListAction;
-import net.host.action.HostUpdateAction;
+import net.host.action.HostModify;
 
 
 
@@ -79,12 +79,12 @@ public class HostFrontController extends HttpServlet{
 			forward.setPath("./host/hostPassCheck.jsp");
 		
 		//패스워드 체크 후 호스트 숙소 관리 페이지 들어가는 곳
-		}else if(command.equals("/HostPage.ho")){
+		}/*else if(command.equals("/HostPage.ho")){
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./host/host_page.jsp");
 			
-		}
+		}*/
 		//호스트 페이지 패스워드 체크 액션페이지
 		else if(command.equals("/HostPassCheckAction.ho")){
 			action = new HostPassCheckAction();
@@ -94,7 +94,7 @@ public class HostFrontController extends HttpServlet{
 		}
 				
 		//호스트 숙소 삭제페이지(디비에 삭제되는거 아니고 비활성화 상태가 됨)
-		else if(command.equals("/HostDeleteAction.ho")){
+		else if(command.equals("/HostDelete.ho")){
 			action = new HostDeleteAction();
 			try{
 				forward = action.execute(request, response);
@@ -102,11 +102,16 @@ public class HostFrontController extends HttpServlet{
 		}
 		
 		//숙소 정보 수정하는 곳
-		else if(command.equals("/HostUpdate.ho")){
+		else if(command.equals("/HostModifyAction.ho")){
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./host/host_update.jsp");
+			forward.setPath("./host/host_modify.jsp");
 			
+		}else if(command.equals("/HostModify.ho")){
+			action = new HostModify();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){e.printStackTrace();}
 		}
 		
 			// 예약내역 확인
