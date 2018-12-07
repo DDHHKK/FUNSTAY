@@ -18,6 +18,7 @@ import net.host.action.Action;
 import net.host.action.ActionForward;
 import net.host.db.HostBean;
 import net.host.db.HostDAO;
+import net.member.db.MemberBean;
 import net.room.db.RoomBean;
 
 
@@ -60,6 +61,9 @@ public class HostInsertAction implements Action{
 		RoomBean rb=new RoomBean();
 		ConvBean cb=new ConvBean();
 		BedBean bb=new BedBean();
+
+MemberBean mb = new MemberBean();
+
 		
 		hb.setRoom_subject(multi.getParameter("room_subject"));
 		hb.setRoom_content(multi.getParameter("room_content"));
@@ -69,7 +73,9 @@ public class HostInsertAction implements Action{
 		hb.setIn_time(multi.getParameter("in_time"));
 		hb.setOut_time(multi.getParameter("out_time"));
 		hb.setAddress(multi.getParameter("address"));
-	
+
+mb.setProfile_photo(multi.getParameter("profile_photo"));
+
 		rb.setRe_room(Integer.parseInt(multi.getParameter("re_room")));
 		
 		

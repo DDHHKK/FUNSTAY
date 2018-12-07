@@ -76,7 +76,7 @@ private Connection getConnection() throws Exception{
 	
 	
 	@SuppressWarnings("resource")
-	public int insertHost(HostBean hb,String email, int end_date2) {
+	public int insertHost(HostBean hb,String email,int end_date2) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -111,6 +111,7 @@ private Connection getConnection() throws Exception{
 			pstmt.setString(2, email);
 			pstmt.setString(3, hb.getAddress());
 			pstmt.setString(4, hb.getRoom_type());
+			System.out.println(hb.getPhoto());
 			pstmt.setString(5, hb.getPhoto());
 			pstmt.setString(6, hb.getRoom_subject());
 			pstmt.setString(7, hb.getRoom_content());
@@ -118,8 +119,8 @@ private Connection getConnection() throws Exception{
 			pstmt.setString(9, hb.getIn_time());
 			pstmt.setString(10, hb.getOut_time());
 			pstmt.setInt(11, hb.getPrice());
-			pstmt.setDate(12, hb.getStart_date());
-			pstmt.setDate(13, hb.getEnd_date());
+			pstmt.setString(12, hb.getStart_date());
+			pstmt.setString(13, hb.getEnd_date());
 			pstmt.setInt(14,1);
 
 			pstmt.executeUpdate();
@@ -307,13 +308,12 @@ private Connection getConnection() throws Exception{
 				hb.setRoom_content(rs.getString("room_content"));
 				hb.setRestroom(rs.getInt("restroom"));
 				hb.setPrice(rs.getInt("price"));
-				hb.setStart_date(rs.getDate("start_date"));
-				hb.setEnd_date(rs.getDate("end_date"));
+				hb.setStart_date(rs.getString("start_date"));
+				hb.setEnd_date(rs.getString("end_date"));
 				hb.setAddress(rs.getString("address"));
 				hb.setRoom_type(rs.getString("room_type"));
 				hb.setIn_time(rs.getString("in_time"));
 				hb.setOut_time(rs.getString("out_time"));
-				hb.setPhoto(rs.getString("photo"));
 			}
 		
 	}catch (Exception e) {
@@ -488,44 +488,10 @@ private Connection getConnection() throws Exception{
 		
 	}
 	
-
-		public void HostModify(HostBean hb){
-			Connection con=null;
-			PreparedStatement pstmt=null;
-			ResultSet rs=null;
-			String sql="";
-			
-			try{
-				
-				con=getConnection();
-				
-				sql="update home set room_subject=?,room_content=?,restroom=?,"
-				  + "price=?,address=?,start_date=?,end_date=?,in_time=?,out_time=?,room_type=? where home_num=?";
-				
-				pstmt=con.prepareStatement(sql);
-				
-				pstmt.setString(1,hb.getRoom_subject());
-				pstmt.setString(2,hb.getRoom_content());
-				pstmt.setInt(3,hb.getRestroom());
-				pstmt.setInt(4,hb.getPrice());
-				pstmt.setString(5,hb.getAddress());
-				pstmt.setDate(6,hb.getStart_date());
-				pstmt.setDate(7,hb.getEnd_date());
-				pstmt.setString(8,hb.getIn_time());
-				pstmt.setString(9,hb.getOut_time());
-				pstmt.setString(10,hb.getRoom_type());
-				pstmt.setInt(11,hb.getHome_num());
-				
-				pstmt.executeUpdate();
-				
-			}catch (Exception e) {
-				e.printStackTrace();
-			}finally{
-				if(rs!=null)try{rs.close();}catch(SQLException ex){}
-				if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
-				if(con!=null)try{con.close();}catch(SQLException ex){}
-			}
-		}
+	/*public List getHostRoomList() {
+		List HostRoomList=new
+	}*/
+	
 	
 	
 		
