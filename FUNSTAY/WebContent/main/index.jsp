@@ -72,7 +72,7 @@ if (email.equals("admin")) {
  		<a href="./MemberListAction.me">회원목록</a>
 		<a href="./MemberLogout.me">로그아웃</a>
  <%}else{%>
-		<a href="./MemberUpdate.me">프로필수정</a>
+		<a href="./PassCheckForm.me">프로필수정</a>
 		<a href="./Booking.bo">예약및 결제하기</a>
 		<a href="./MyReserve.bk">MY RESERVE</a>
 		<a href="./Wishlist.wi">위시리스트</a>

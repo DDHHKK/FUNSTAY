@@ -87,7 +87,7 @@ for(int i=0; i<bookingList.size(); i++){
 	BookingBean bb=(BookingBean)bookingList.get(i);
 	PaymentBean pb=(PaymentBean)paymentList.get(i);
 	HostBean hb=(HostBean)hostList.get(i);
-System.out.println(bb.getCheck_in());
+
 
 
 

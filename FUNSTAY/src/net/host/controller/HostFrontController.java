@@ -49,6 +49,8 @@ public class HostFrontController extends HttpServlet{
 			forward.setPath("./host/host_join1.jsp");
 			
 			
+			
+			
 		}else if(command.equals("/HostJoinAction.ho")){
 			action = new HostJoinAction();
 			try {

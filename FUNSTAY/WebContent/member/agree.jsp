@@ -42,15 +42,15 @@ function nochk(){
 <body>
 <form action="#" name="form" method="post">
  <table width="1400" height="650">
-  <tr>
+<!--   <tr>
    <td width="100%" height="10%"><span style="padding-left: 160px">
    <img src="../img/twitter.png" width="200" height="60" border="0"
     align="middle"></span>&nbsp;회원가입
    </td>
-  </tr>
+  </tr> -->
   <tr>
    <td height="60%" align="center">
-   <hr class="hr_sh"><br>
+   <!-- <hr class="hr_sh"><br> -->
    <p align="left">
    <span style="padding-left: 160px">
    <b id="b_sh">FUNSTAY 약관동의</b></span>
@@ -77,18 +77,18 @@ function nochk(){
 - 협력회사로부터의 제공 
 - 생성정보 수집 툴을 통한 수집
    </textarea>
-   <br><br>
+  <!--  <br><br>
    <input type="checkbox" name="req"> 개인정보 수집 및 이용에 동의합니다. 
    <br>
    <hr class="hr_sh">
    </td>
   </tr>
-  <tr>
+   <tr>
    <td align="center" valign="top">
     <input type="submit" value="동의" onclick="chk()">&nbsp;&nbsp;&nbsp;
     <input type="button" value="동의안함" onclick="nochk()">    
    </td>
-  </tr>
+  </tr>  -->
  </table>
 </form>
 </body>
