@@ -25,18 +25,51 @@ figcaption>img {
 
 
 
+/* --------host_modify.jsp------- */
 
 
+#content td {padding : 10px;}
+
+.sel {padding : 7px;
+	margin : 7px;}
 
 
+#sub_btn {
+	font-size:1.2em;
+	color:  #fff;
+	border : none;
+	background-color: #cc1d1d;
+	font-weight: bold;
+	padding : 10px;
+	cursor: pointer;
+	float:right;
+	width:200px;
+}
+
+ input[type=text] {
+    padding : 7px;
+	margin : 7px; }
 
 
+.add_btn {
+	font-size:1.2em;
+	color:  #000;
+	border : 2px solid #cc1d1d;
+	font-weight: bold;
+	padding : 10px;
+	cursor: pointer;
+}
+
+.add_btn:hover {
+	background-color: #cc1d1d;
+	cursor: pointer;
+}ee
 
 
-
-
-
-
+#sub_btn:hover {
+	background-color: #811212;
+	cursor: pointer;
+}
 
 
 
