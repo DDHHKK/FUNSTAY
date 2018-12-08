@@ -59,7 +59,7 @@
 .add_btn:hover {
 	background-color: #cc1d1d;
 	cursor: pointer;
-}ee
+}
 
 
 #sub_btn:hover {
@@ -68,4 +68,11 @@
 }
 
 
+.fa-search:hover{
+	color: #cc1d1d;
+	cursor: pointer;
+}
 
+#info_check {
+	
+}

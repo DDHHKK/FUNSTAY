@@ -72,8 +72,8 @@ HostBean hb=(HostBean)request.getAttribute("hb");
 
 <table id="info_check">
 
-<tr><td class="td1"><b>숙소이름</b>  </td><td class="td2"><input type="text" name="room_subject" size="100" value="<%=hb.getRoom_subject() %>"></td></tr>
-<tr><td class="td1"><b>숙소설명 </b> </td><td class="td2"><textarea name="room_content" cols="100" rows="10" id="cc"><%=hb.getRoom_content() %></textarea></td></tr>
+<tr><td class="td1"><b>숙소이름</b>  </td><td class="td2"><input type="text" name="room_subject" size="70" value="<%=hb.getRoom_subject() %>"></td></tr>
+<tr><td class="td1"><b>숙소설명 </b> </td><td class="td2"><textarea name="room_content" cols="75" rows="10" id="cc"><%=hb.getRoom_content() %></textarea></td></tr>
 
 
 
@@ -95,7 +95,7 @@ HostBean hb=(HostBean)request.getAttribute("hb");
 
 
 <tr><td class="td"><b>가격 </b></td>
-<td class="td2"><input type="text" name="price" value="<%=hb.getPrice() %>"> /1박 </td></tr>
+<td class="td2"><input type="text" name="price" value="<%=hb.getPrice() %>" size="8"> /1박 </td></tr>
 
 
 
@@ -139,7 +139,7 @@ else{
 
 </td></tr> --%>
 <%-- <tr><td class="td1">총 방개수</td><td class="td2"><input type="text" name="re_room" value="<%=re_room %>"></td></tr> --%>
-<tr><td class="td1"><b>주소 </b> </td><td class="td2"><input type="text" name="address" id="address" size="90" value="<%=hb.getAddress() %>">
+<tr><td class="td1"><b>주소 </b> </td><td class="td2"><input type="text" name="address" id="address" size="70" value="<%=hb.getAddress() %>">
  <i class="fa fa-search" onclick="daumPostcode()" style='font-size:30px'></i></td></tr>
 
 
