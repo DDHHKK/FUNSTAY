@@ -74,7 +74,7 @@ List hostHome=(List)request.getAttribute("hostHome");
 		<a href="./room_info"><img src="./img/icon/paper.png" width="45px" height="45px"></a>
 		<a href="./room_info"><img src="./img/icon/calendar.png" width="45px" height="45px"></a>
 		<a href="./HostModify.ho?home_num=<%=hb.getHome_num()%>"><img src="./img/icon/pen.png" width="45px" height="45px"></a>
-		<a href="./HostDelete.ho??home_num=<%=hb.getHome_num()%>"><img src="./img/icon/basket.png" width="45px" height="45px"></a>
+		<a href="./HostDelete.ho?home_num=<%=hb.getHome_num()%>" onclick="fun1()"><img src="./img/icon/basket.png" width="45px" height="45px"></a>
 	</figcaption></figure></td>
 
 <% if(i%3==2) { %>
@@ -108,16 +108,20 @@ List hostHome=(List)request.getAttribute("hostHome");
 
 function fun1() {
 	r=confirm ("정말 숙소를 삭제하시겠습니까?");
-		location.href="/HostDeleteAction.ho"
+		
 	if(r==true){
 		//삭제액션으로 가기
+		location.href="/HostDeleteAction.ho";
+	
 	}else if(r==false) {
 		alert("취소되었습니다.");
 		history.go(-1);
+		
 	}
+	return false;
 }
 
-</script> 
+</script>
 
 
 

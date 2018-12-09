@@ -463,7 +463,7 @@ private Connection getConnection() throws Exception{
 		
 		try{
 			con = getConnection();
-			String sql = "update home set home_status=? where id=?";
+			String sql = "update home set home_status=? where home_num=?";
 			
 			pstmt = con.prepareStatement(sql);
 			

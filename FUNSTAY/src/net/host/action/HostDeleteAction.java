@@ -16,15 +16,24 @@ public class HostDeleteAction implements Action{
 		
 		System.out.println("HostDeleteAction execute()");
 		
+		int home_num=Integer.parseInt(request.getParameter("home_num"));
+		
 		HostDAO hdao=new HostDAO();
 		HostBean hb=new HostBean();
 		
+
+		
+		hdao.hostDelete(hb, home_num);
 		
 		
-		//hdao.hostDelete(hb, home_num);
+		ActionForward forward=new ActionForward();
+		forward.setRedirect(true);
+		forward.setPath("./HostRoomList.ho");
 		
-		return null;
+		return forward;
 	}
+	
+	
 	
 
 }

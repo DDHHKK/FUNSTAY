@@ -12,7 +12,7 @@ public class HostModify implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		System.out.println("HostModify execut()");
+		System.out.println("HostModify execute()");
 		
 		int home_num=Integer.parseInt(request.getParameter("home_num"));
 		
