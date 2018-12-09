@@ -252,7 +252,11 @@
 		<tr><td>Price</td><td><%=sc.getPrice() %></td></tr>
 		<tr><td>In_time</td><td><%=sc.getIn_time() %></td></tr>
 		<tr><td>Out_time</td><td><%=sc.getOut_time() %></td></tr>
-		<tr rows="2"><td><img src="./upload/<%=sc.getPhoto().split(",")[0] %>" width="130" height="130"></td><td>
+		<tr><td colspan="2"><img src="./upload/<%=sc.getPhoto().split(",")[0] %>" width="130" height="130">
+		<img src="./upload/<%=sc.getPhoto().split(",")[1] %>" width="130" height="130">
+		<img src="./upload/<%=sc.getPhoto().split(",")[2] %>" width="130" height="130">
+		<img src="./upload/<%=sc.getPhoto().split(",")[3] %>" width="130" height="130">
+		<img src="./upload/<%=sc.getPhoto().split(",")[4] %>" width="130" height="130"></td></tr>
 		<tr><td>Restroom</td><td><%=sc.getRestroom() %></td></tr> 
 		<tr><td>Room_content</td><td><%=sc.getRoom_content() %></td></tr>
 		<tr><td>Room_subject</td><td><%=sc.getRoom_subject() %></td></tr>
