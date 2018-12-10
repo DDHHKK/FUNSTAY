@@ -32,16 +32,16 @@ img:hover {
 <table border="4" align="center">
 <tr>
 <th rowspan="3" >
-<a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[0] %>" width="130" height="130"></a></th>
-<th><a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[1] %>" width="130" height="130"></a></th>
-<th><a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[2] %>" width="130" height="130"></a></th>
+<a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[0] %>" width="800" height="700"></a></th>
+<th><a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[1] %>" width="400" height="350"></a></th>
+<th><a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[2] %>" width="400" height="350"></a></th>
 </tr>
 <tr>
-<th><a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[3] %>" width="130" height="130"></a></th>
-<th><a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[4] %>" width="130" height="130"></a></th>
+<th><a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[3] %>" width="400" height="350"></a></th>
+<th><a href="#"><img src="./upload/<%=sc.getPhoto().split(",")[4] %>" width="400" height="350"></a></th>
 </tr>
 </table>
- </div>
+ </div> 
  
 </body>
 </html>
