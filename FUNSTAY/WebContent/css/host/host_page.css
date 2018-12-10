@@ -18,10 +18,13 @@
     height: 46px;
  }
 
+<<<<<<< HEAD
 figcaption>img {
 	margin : 0px 10px 0px 10px;
 	cursor: pointer;
 }
+=======
+>>>>>>> branch 'master' of https://github.com/DDHHKK/FUNSTAY.git
 
 
 
@@ -72,4 +75,11 @@ figcaption>img {
 }
 
 
+.fa-search:hover{
+	color: #cc1d1d;
+	cursor: pointer;
+}
 
+#info_check {
+	
+}
