@@ -51,22 +51,34 @@
 <div id="content" style="display: block;">
 
 <%
+int home_status=1;
 List hostHome=(List)request.getAttribute("hostHome");
+home_status = (Integer)session.getAttribute("home_status");
 
+HostBean hb=new HostBean();
 
 %>
 
-<!-- 여기서부터 페이지 내용을 적어주세. -->
+<!-- 여기서부터 페이지 내용을 적어주세요. -->
 
 <h1>내 숙소관리</h1>
  
- <table class="grid cs-style-3">
 
-    <%for(int i=0; i<hostHome.size(); i++){
-	 HostBean hb=(HostBean)hostHome.get(i);
+
+ 
+ <table class="grid cs-style-3">
+ 
+
+    <%
+    if(hb.getHome_status()==1){
+    
+    for(int i=0; i<hostHome.size(); i++){
+	 hb=(HostBean)hostHome.get(i);
 	 
 	 if(i%3==0) { %>
 	  <tr> <% } %>
+	  
+
   
 <td><figure><img src="./upload/<%=hb.getPhoto().split(",")[0]%>" width="300" height="300"> 
 	<figcaption>
@@ -77,10 +89,10 @@ List hostHome=(List)request.getAttribute("hostHome");
 		<a href="./HostDelete.ho?home_num=<%=hb.getHome_num()%>" onclick="fun1()"><img src="./img/icon/basket.png" width="45px" height="45px"></a>
 	</figcaption></figure></td>
 
+
 <% if(i%3==2) { %>
- 
 </tr> 
-  <% } }%> 
+  <% } } }%> 
 
  </table> 
 
