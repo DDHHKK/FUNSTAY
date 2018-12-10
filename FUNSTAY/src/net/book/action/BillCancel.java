@@ -5,6 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.book.controller.Action;
 import net.book.controller.ActionForward;
+import net.book.db.BookDAO;
+import net.booking.db.BookingBean;
+import net.booking.db.PaymentBean;
 
 public class BillCancel implements Action {
 
@@ -13,7 +16,18 @@ public class BillCancel implements Action {
 		System.out.println("BillCancel execute()");
 		//request 한글처리
 		request.setCharacterEncoding("utf-8");
-		return null;
+		
+		BookDAO bdao=new BookDAO();
+		BookingBean bb=new BookingBean();
+		PaymentBean pb=new PaymentBean();
+		bdao.BillCancel(bb, pb);
+		
+		
+		ActionForward forward=new ActionForward();
+		forward.setRedirect(true);
+		forward.setPath("./MyReserve.bk");
+		
+		return forward;
 	}
 	
 

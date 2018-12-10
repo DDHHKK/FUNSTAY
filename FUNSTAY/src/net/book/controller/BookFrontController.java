@@ -37,11 +37,15 @@ public class BookFrontController extends HttpServlet {
 		// 일치하면   ./myinfo/my_reserve.jsp 이동
 		ActionForward forward=null;
 		Action action=null;
+		
+		//리뷰작성 페이지
 		if(command.equals("/ReviewWrite.bk")){
 			
 			forward=new ActionForward();
 			forward.setRedirect(false);   //  true/false
 			forward.setPath("./myinfo/reviewWrite.jsp");
+			
+		//리뷰작성Action	
 		}else if(command.equals("/ReviewWriteAction.bk")){
 			action=new ReviewWriteAction();
 			try {
@@ -51,6 +55,7 @@ public class BookFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+		//내 예약 정보 페이지	
 		}else if(command.equals("/MyReserve.bk")){
 			action=new BeforeTripList();
 			try {
@@ -61,7 +66,6 @@ public class BookFrontController extends HttpServlet {
 			}
 			
 			
-		
 			
 		//예약취소(디비에 삭제되는 것이 아니고 비활성화 상태됨)	
 		}else if(command.equals("/BillCancel.bk")){

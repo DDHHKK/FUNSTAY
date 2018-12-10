@@ -44,7 +44,7 @@ public class BookDAO {
 	}
 	
 	
-	//由щ럭 �옉�꽦 硫붿꽌�뱶(sql-insert臾�)
+	//리뷰 작성 메서드(sql-insert문)
 	public void insertReview(ReviewBean bb){
 		
 		Connection con=null;
@@ -83,13 +83,13 @@ public class BookDAO {
 			 
 		 }
 		 
-	}//由щ럭 �옉�꽦 硫붿꽌�뱶 �걹
+	}//리뷰작성 메서드 끝
 	
 	
 	
 	
 	
-	//�셿猷뚮맂 �닕�냼 媛��졇�삤�뒗 硫붿꽌�뱶(sql-select臾�)
+	//완료된 숙소 가져오는 메서드(sql-select臾�)
     public Vector<?> GetBeforeTrip(String member_email){
 		List bookingList=new ArrayList<>();
 		List paymentList=new ArrayList<>();
@@ -144,12 +144,62 @@ public class BookDAO {
 				
 		return vector;
 		
-	}//�셿猷뚮맂 �닕�냼 媛��졇�삤�뒗 硫붿꽌�뱶 �걹
+	}//완료된 숙소 가져오는 메서드 끝
+    
+    
+    
+  //예약취소 메서드(sql-update문)
+  	public void BillCancel(BookingBean bb,PaymentBean pb){
+  		
+  		Connection con=null;
+  	    PreparedStatement pstmt=null;
+  	    ResultSet rs=null;
+  	    
+  	    
+  	    
+  		 try{
+  			    //1,2단계 디비연결하는 메서드 호출
+  				con=getConnection();
+  			    //3단계
+  				String sql="update booking set booking_status=? where booking_num=?";
+  				pstmt=con.prepareStatement(sql);
+  				
+  				pstmt.setInt(1, 0);
+  				pstmt.setInt(2, bb.getBooking_num());
+  				
+  			    //4단계 실행
+  				pstmt.executeUpdate(); 
+  				
+  				
+  			    //3단계
+  				sql="update payment set payment_status=? where payment_num=?";
+  				pstmt=con.prepareStatement(sql);
+  				
+  				pstmt.setString(1, "결제취소");
+  				pstmt.setString(2, pb.getPayment_num());
+  				
+  			    //4단계 실행
+  				pstmt.executeUpdate(); 
+  				
+  				
+  				
+  				
+  		 }catch(Exception e){
+  			 e.printStackTrace();
+  		 }finally{
+  			
+  			 if(rs!=null) try{rs.close();}catch(SQLException ex){}
+  			 if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+  			 if(con!=null) try{con.close();}catch(SQLException ex){}
+  			 
+  		 }
+  		 
+  	}//예약취소 메서드 끝
     
 
 	
 
-}//BookDAO �겢�옒�뒪 �걹
+}//BookDAO 끝
 
 
 

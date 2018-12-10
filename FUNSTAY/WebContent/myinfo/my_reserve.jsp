@@ -439,12 +439,38 @@ for(int i=0; i<bookingList2.size(); i++){
       <header class="w3-container w3-teal"> 
         <span onclick="document.getElementById('id09').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
+        
+        
+        
+         
+<%
+
+List bookingList3=(List)request.getAttribute("bookingList");
+List paymentList3=(List)request.getAttribute("paymentList");
+List hostList3=(List)request.getAttribute("hostList");
+
+for(int i=0; i<bookingList2.size(); i++){
+	BookingBean bb=(BookingBean)bookingList3.get(i);
+	PaymentBean pb=(PaymentBean)paymentList3.get(i);
+	HostBean hb=(HostBean)hostList3.get(i);
+
+
+
+
+
+%>
+  
+
+      
+        
+        
+        
         <h2 class="site_DY">Funstay</h2>
       </header>
       <div class="w3-container">
         <table class="receipt_table_DY">
          <tr>
-          <td colspan="2" class="receipt_ti_DY">화이트캐슬</td>
+          <td colspan="2" class="receipt_ti_DY"><%=hb.getRoom_subject()%></td>
          </tr>
          <tr>
           <td>체크인</td> 
@@ -479,6 +505,16 @@ for(int i=0; i<bookingList2.size(); i++){
           <td>60,000원</td>
          </tr>
         </table>
+        
+        
+        
+<%
+}
+%> 
+  
+        
+        
+        
       </div>
       <footer class="w3-container w3-teal">
         <p class="cancel_DY">예약취소</p>
@@ -523,7 +559,7 @@ function openCity(cityName) {
 }
 
 
-//예약 취소 확인
+//예약 취소 
 function button_event(){
 	r=confirm("정말 예약 취소하시겟습니까?")
 	
