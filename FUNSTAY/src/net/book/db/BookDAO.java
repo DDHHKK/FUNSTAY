@@ -105,7 +105,7 @@ public class BookDAO {
 			con=getConnection();
                 
                    String sql2="select distinct h.room_subject,b.check_in, b.check_out,p.sum_price from home h, payment p , booking b "
-                   		+ "where p.member_email=? and b.payment_num=p.payment_num and b.home_num=h.home_num";
+                   		+ "where p.member_email=? and b.payment_num=p.payment_num and b.home_num=h.home_num and b.check_in<now()";
                    
                    pstmt=con.prepareStatement(sql2);//객체생성
    		           pstmt.setString(1,member_email);
