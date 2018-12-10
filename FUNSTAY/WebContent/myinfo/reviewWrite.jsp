@@ -55,7 +55,7 @@
 <!--테이블 시작  -->
 <table border="1">
 
-<!-- <tr>
+<tr>
 <td>방 별점주기</td>
 <td>  
  <div class="starRev" name="satisfaction">
@@ -66,7 +66,7 @@
   <span class="starR">별5</span>
 </div>
 </td>
-</tr>  -->
+</tr>
 <h2>숙박이 어떠셨는지 말씀해 주세요</h2>
 
 <tr>
@@ -79,27 +79,36 @@
 </tr>
 <tr>
 <td>만족도</td>
-<td><input type="radio" name="satisfaction">1점
-	<input type="radio" name="satisfaction">2점
-	<input type="radio" name="satisfaction">3점
-	<input type="radio" name="satisfaction">4점
-	<input type="radio" name="satisfaction">5점</td>
+<td>
+	<input type="radio" name="satisfaction" value="1">1점
+	<input type="radio" name="satisfaction" value="2">2점
+	<input type="radio" name="satisfaction" value="3">3점
+	<input type="radio" name="satisfaction" value="4">4점
+	<input type="radio" name="satisfaction" value="5">5점
+</td>
+	<!-- <input type="text" name="satisfaction"></td> -->
 </tr>
 <tr>
 <td>깨끗함</td>
-<td><input type="radio" name="clean">1점
-	<input type="radio" name="clean">2점
-	<input type="radio" name="clean">3점
-	<input type="radio" name="clean">4점
-	<input type="radio" name="clean">5점</td>
+<td>
+ 	<input type="radio" name="clean" value="1">1점
+	<input type="radio" name="clean" value="2">2점
+	<input type="radio" name="clean" value="3">3점
+	<input type="radio" name="clean" value="4">4점
+	<input type="radio" name="clean" value="5">5점
+	</td> 
+	<!-- <input type="text" name="clean"></td> -->
 </tr>
 <tr>
 <td>교통접근성</td>
-<td><input type="radio" name="access">1점
-	<input type="radio" name="access">2점
-	<input type="radio" name="access">3점
-	<input type="radio" name="access">4점
-	<input type="radio" name="access">5점</td>
+<td>
+	<input type="radio" name="access" value="1">1점
+	<input type="radio" name="access" value="2">2점
+	<input type="radio" name="access" value="3">3점
+	<input type="radio" name="access" value="4">4점
+	<input type="radio" name="access" value="2">5점
+	 </td>
+	<!-- <input type="text" name="access"></td> -->
 </tr>
 <tr>
 <td>아이디</td>
