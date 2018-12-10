@@ -56,7 +56,7 @@
 <table border="1">
 
 <!-- <tr>
-<td>별점매기기</td>
+<td>방 별점주기</td>
 <td>  
  <div class="starRev" name="satisfaction">
   <span class="starR on">별1</span>
@@ -66,7 +66,7 @@
   <span class="starR">별5</span>
 </div>
 </td>
-</tr> -->
+</tr>  -->
 <h2>숙박이 어떠셨는지 말씀해 주세요</h2>
 
 <tr>
@@ -79,15 +79,27 @@
 </tr>
 <tr>
 <td>만족도</td>
-<td><input type="text" name="satisfaction"></td>
+<td><input type="radio" name="satisfaction">1점
+	<input type="radio" name="satisfaction">2점
+	<input type="radio" name="satisfaction">3점
+	<input type="radio" name="satisfaction">4점
+	<input type="radio" name="satisfaction">5점</td>
 </tr>
 <tr>
 <td>깨끗함</td>
-<td><input type="text" name="clean"></td>
+<td><input type="radio" name="clean">1점
+	<input type="radio" name="clean">2점
+	<input type="radio" name="clean">3점
+	<input type="radio" name="clean">4점
+	<input type="radio" name="clean">5점</td>
 </tr>
 <tr>
 <td>교통접근성</td>
-<td><input type="text" name="access"></td>
+<td><input type="radio" name="access">1점
+	<input type="radio" name="access">2점
+	<input type="radio" name="access">3점
+	<input type="radio" name="access">4점
+	<input type="radio" name="access">5점</td>
 </tr>
 <tr>
 <td>아이디</td>
