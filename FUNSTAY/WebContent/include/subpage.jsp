@@ -57,7 +57,7 @@ $(document).ready(function(){
 	<li class="a"><a href="./MemberUpdate.me">회원 정보 수정</a></li>
 	<li class="a"><a href="./Booking.bo">예약및결제하기<br>(삭제 예정)</a></li>
 	<li class="a"><a href="./MyReserve.bk">MY RESERVE</a></li>
-	<li class="a"><a href="./WishList.wi">위시리스트</a></li>
+	<li class="a"><a href="./Wishlist.wi">위시리스트</a></li>
 	<li class="a"><a href="./MemberMileage.me" class="aa">마일리지</a></li>
 	<li class="a"><a href="./MemberQNAlist.me">문의 확인</a></li>
 	
