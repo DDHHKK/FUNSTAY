@@ -102,6 +102,7 @@ for(int i=0; i<bookingList.size(); i++){
     <td><%=bb.getCheck_out()%></td>
     <td><%=pb.getSum_price()%></td></tr>
 
+
  
 </table>
 <%

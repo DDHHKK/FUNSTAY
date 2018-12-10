@@ -112,7 +112,7 @@ public class BookDAO {
    		          
    		           rs=pstmt.executeQuery();
    		           
-   		        if(rs.next()){ 
+   		        while(rs.next()){ 
 					//첫 행 이동 열접근해서
    		        	HostBean hb=new HostBean();
    		        	PaymentBean pb=new PaymentBean();
