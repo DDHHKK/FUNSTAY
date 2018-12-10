@@ -4,13 +4,13 @@ import java.sql.Date;
 
 public class ReviewBean {
 	
-	//review테이블 컬럼 목록
+	//review�뀒�씠釉� 而щ읆 紐⑸줉
 	private String payment_num;
 	private String content;
 	private Date review_date;
-	private int satisfaction;
-	private int clean;
-	private int access;
+	private String satisfaction;
+	private String clean;
+	private String access;
 	private String member_email;
 	private int home_num;
 	
@@ -34,23 +34,23 @@ public class ReviewBean {
 	public void setReview_date(Date review_date) {
 		this.review_date = review_date;
 	}
-	public int getSatisfaction() {
+	public String getSatisfaction() {
 		return satisfaction;
 	}
-	public void setSatisfaction(int satisfaction) {
-		this.satisfaction = satisfaction;
+	public void setSatisfaction(String string) {
+		this.satisfaction = string;
 	}
-	public int getClean() {
+	public String getClean() {
 		return clean;
 	}
-	public void setClean(int clean) {
-		this.clean = clean;
+	public void setClean(String string) {
+		this.clean = string;
 	}
-	public int getAccess() {
+	public String getAccess() {
 		return access;
 	}
-	public void setAccess(int access) {
-		this.access = access;
+	public void setAccess(String string) {
+		this.access = string;
 	}
 	public String getMember_email() {
 		return member_email;
