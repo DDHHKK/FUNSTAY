@@ -112,13 +112,10 @@ public class BookDAO {
    		          
    		           rs=pstmt.executeQuery();
    		           
-<<<<<<< HEAD
+
    		        while(rs.next()){ 
 					//첫 행 이동 열접근해서
-=======
-   		        if(rs.next()){ 
-					//泥� �뻾 �씠�룞 �뿴�젒洹쇳빐�꽌
->>>>>>> branch 'master' of https://github.com/DDHHKK/FUNSTAY.git
+
    		        	HostBean hb=new HostBean();
    		        	PaymentBean pb=new PaymentBean();
    		        	BookingBean bb=new BookingBean();
