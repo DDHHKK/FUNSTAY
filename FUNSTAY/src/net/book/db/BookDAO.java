@@ -121,7 +121,7 @@ public class BookDAO {
    		        	bb.setCheck_in(rs.getDate("check_in"));
    		        	bb.setCheck_out(rs.getDate("check_out"));
    		        	hb.setRoom_subject(rs.getString("room_subject"));
-   		        	pb.setSum_price(rs.getInt("sun_price"));
+   		        	pb.setSum_price(rs.getInt("sum_price"));
    		        	
    		        	bookingList.add(bb);
    		        	paymentList.add(pb);

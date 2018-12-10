@@ -72,8 +72,10 @@
  <!--썸네일1시작 -->
   <a href="#">
   <div class="mywish_shj">
-  <div id="outerbox_shj"> <img src="../img/담양1.png"> </div>
-
+  
+<table border="1">
+<tr><td>방제목</td><td>체크인날짜</td>
+    <td>체크아웃날짜</td><td>총금액</td></tr>
 
 
   
@@ -93,14 +95,14 @@ for(int i=0; i<bookingList.size(); i++){
 
 
 %>
-  <table border="1">
+  
 
-<tr><td>방제목</td><td><%=hb.getRoom_subject()%></td>
-    <td>체크인날짜</td><td><%=bb.getCheck_in()%></td></tr>
-<tr><td>체크아웃날짜</td><td><%=bb.getCheck_out()%></td>
-    <td>총금액</td><td><%=pb.getSum_price()%></td></tr>
+<tr><td><%=hb.getRoom_subject()%></td>
+    <td><%=bb.getCheck_in()%></td>
+    <td><%=bb.getCheck_out()%></td>
+    <td><%=pb.getSum_price()%></td></tr>
 
-</td></tr> 
+ 
 </table>
 <%
 }
@@ -114,7 +116,7 @@ for(int i=0; i<bookingList.size(); i++){
   
 
   <div id="imginfo_shj">
-  <div id="imgname_shj">부산광역시 해운대</div>
+  
   <!--영수증버튼(모달박스)  -->
   <div class="w3-container_receipt">
   <button onclick="document.getElementById('id09').style.display='block'" class="w3-button w3-black">영수증</button>
@@ -133,9 +135,60 @@ for(int i=0; i<bookingList.size(); i++){
   <!--썸네일2시작  -->
   <a href="#">
   <div class="mywish_shj">
-  <div id="outerbox_shj"> <img src="../img/담양1.png"> </div>
+  
+  
+    
+<table border="1">
+<tr><td>방제목</td><td>체크인날짜</td>
+    <td>체크아웃날짜</td><td>총금액</td></tr>
+
+
+  
+<%
+
+List bookingList2=(List)request.getAttribute("bookingList");
+List paymentList2=(List)request.getAttribute("paymentList");
+List hostList2=(List)request.getAttribute("hostList");
+
+for(int i=0; i<bookingList2.size(); i++){
+	BookingBean bb=(BookingBean)bookingList2.get(i);
+	PaymentBean pb=(PaymentBean)paymentList2.get(i);
+	HostBean hb=(HostBean)hostList2.get(i);
+
+
+
+
+
+%>
+  
+
+<tr><td><%=hb.getRoom_subject()%></td>
+    <td><%=bb.getCheck_in()%></td>
+    <td><%=bb.getCheck_out()%></td>
+    <td><%=pb.getSum_price()%></td></tr>
+
+ 
+</table>
+<%
+}
+%> 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
   <div id="imginfo_shj">
-  <div id="imgname_shj">부산광역시 해운대</div>
+  
   <!--영수증버튼(모달박스)  -->
   <div class="w3-container_receipt">
   <button onclick="document.getElementById('id09').style.display='block'" class="w3-button w3-black">영수증</button>
@@ -191,44 +244,6 @@ for(int i=0; i<bookingList.size(); i++){
   <!--썸네일4끝  -->
   
   
-  <!--썸네일5시작  -->
-   <a href="#">
-  <div class="mywish_shj">
-  <div id="outerbox_shj"> <img src="../img/담양1.png"> </div>
-  <div id="imginfo_shj">
-  <div id="imgname_shj">부산광역시 해운대</div>
-  <!--영수증버튼(모달박스)  -->
-  <div class="w3-container_receipt">
-  <button onclick="document.getElementById('id09').style.display='block'" class="w3-button w3-black">영수증</button>
-  </div>
- <!--영수증 버튼 끝  -->  
-  <!--리뷰쓰기 버튼 -->
-  <button onclick="location.href='./ReviewWrite.bk'" class="review_butt_DY">리뷰쓰기</button>
-  <!--리뷰쓰기 버튼 끝  -->
-  </div>
-  </div>
-  </a>
-  <!--썸네일5끝  -->
-  
-  <!--썸네일6시작  -->
-  <a href="#">
-  <div class="mywish_shj">
-  <div id="outerbox_shj"> <img src="../img/담양1.png"> </div>
-  <div id="imginfo_shj">
-  <div id="imgname_shj">부산광역시 해운대</div>
-  <!--영수증버튼(모달박스)  -->
-  <div class="w3-container_receipt">
-  <button onclick="document.getElementById('id09').style.display='block'" class="w3-button w3-black">영수증</button>
-  </div>
- <!--영수증 버튼 끝  -->  
-  <!--리뷰쓰기 버튼 -->
-  <button onclick="location.href='./ReviewWrite.bk'" class="review_butt_DY">리뷰쓰기</button>
-  <!--리뷰쓰기 버튼 끝  -->
-  </div>
-  </div>
-  </a>
-  <!--썸네일6끝  -->
-  
   
   
   
@@ -257,7 +272,7 @@ for(int i=0; i<bookingList.size(); i++){
   </div>
   <!-- 영수증 버튼 끝  -->
   <!--예약취소 버튼 -->
-  <button class="cancel_butt_DY" onclick="location.href='./ReserveCancel.bk'">예약취소</button>
+  <button class="cancel_butt_DY" onclick="button_event();">예약취소</button>
   <!--예약취소 버튼 끝  -->
   </div>
   </div>
@@ -277,7 +292,7 @@ for(int i=0; i<bookingList.size(); i++){
   </div>
   <!-- 영수증 버튼 끝  -->
   <!--예약취소 버튼 -->
-  <button class="cancel_butt_DY" onclick="location.href='./ReserveCancel.bk'">예약취소</button>
+  <button class="cancel_butt_DY" onclick="button_event();">예약취소</button>
   <!--예약취소 버튼 끝  -->
   </div>
   </div>
@@ -297,7 +312,7 @@ for(int i=0; i<bookingList.size(); i++){
   </div>
   <!-- 영수증 버튼 끝  -->
   <!--예약취소 버튼 -->
-  <button class="cancel_butt_DY" onclick="location.href='./ReserveCancel.bk'">예약취소</button>
+  <button class="cancel_butt_DY" onclick="button_event();">예약취소</button>
   <!--예약취소 버튼 끝  -->
   </div>
   </div>
@@ -509,15 +524,21 @@ function openCity(cityName) {
 
 //예약 취소 확인
 function button_event(){
-	if(confirm("정말 예약 취소하시겠습니까?")==true){
-		alert("예약 취소되었습니다.")
-	}else{
-		return;
-	}
+	r=confirm("정말 예약 취소하시겟습니까?")
 	
+	if(r==true){
+		//삭제액션으로 가기
+		location.href="/BillCancel.bk";
+		
+	}else if(r==false){
+		alert("예약 취소되었습니다.")
+		history.go(-1);
+	}
+	return false;
 }
 
 </script> 
+
 
 
 

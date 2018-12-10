@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.book.action.BeforeTripList;
+import net.book.action.BillCancel;
 import net.book.action.ReviewWriteAction;
 
 
@@ -60,10 +61,16 @@ public class BookFrontController extends HttpServlet {
 			}
 			
 			
-		}else if(command.equals("/ReserveCancel.bk")){
-			forward=new ActionForward();
-			forward.setRedirect(false);   //  true/false
-			forward.setPath("./myinfo/reserveCancel.jsp");
+		
+			
+		//예약취소(디비에 삭제되는 것이 아니고 비활성화 상태됨)	
+		}else if(command.equals("/BillCancel.bk")){
+			action=new BillCancel();
+			try{
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		//이동
