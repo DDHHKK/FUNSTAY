@@ -100,8 +100,6 @@
 	<a name="숙소이용규칙"><h1>숙소이용규칙</h1></a>
 	체크인 시간 - <%=sc.getIn_time() %> <br>
 	체크아웃 시간 - <%=sc.getOut_time() %> <br> 
-	시작날짜 - <%=sc.getStart_date() %> <br>
-	마감날짜 - <%=sc.getEnd_date() %> <br>  
 	</div>
 </div>
  <br><br><br><br><br>

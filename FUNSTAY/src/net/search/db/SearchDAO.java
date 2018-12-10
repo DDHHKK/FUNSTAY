@@ -42,14 +42,14 @@ private Connection getConnection() throws Exception{
 			ResultSet rs=null;
 			int count=0;
 			try {
-				//1,2디비연결 메서드 호출
+				//1,2�뵒鍮꾩뿰寃� 硫붿꽌�뱶 �샇異�
 				con=getConnection();
-		//3 게시판 글개수 구하기 count(*)
+		//3 寃뚯떆�뙋 湲�媛쒖닔 援ы븯湲� count(*)
 				String sql="select count(*) from home";
 				pstmt=con.prepareStatement(sql);
-				//4 저장 <= 결과 실행
+				//4 ���옣 <= 寃곌낵 �떎�뻾
 				rs=pstmt.executeQuery();
-				//5 첫행에 데이터 있으면 
+				//5 泥ロ뻾�뿉 �뜲�씠�꽣 �엳�쑝硫� 
 				if(rs.next()){
 					count=rs.getInt(1);   
 				}
@@ -70,10 +70,10 @@ private Connection getConnection() throws Exception{
 			List<SearchBean> SearchList = new ArrayList<SearchBean>();
 			try{
 				
-				//1,2디비연결 메서드호출
+				//1,2�뵒鍮꾩뿰寃� 硫붿꽌�뱶�샇異�
 				con = getConnection();
-				//num 게시판 글번호 구하기
-				//sql 함수 최대값 구하기 max()
+				//num 寃뚯떆�뙋 湲�踰덊샇 援ы븯湲�
+				//sql �븿�닔 理쒕�媛� 援ы븯湲� max()
 				sql = "select * from home order by home_num desc limit ?,? ";
 				pstmt = con.prepareStatement(sql); 
 				pstmt.setInt(1, startRow-1);
@@ -132,10 +132,10 @@ private Connection getConnection() throws Exception{
 			ResultSet rs = null;
 			SearchBean sc = new SearchBean();
 			try{			
-				//1,2디비연결 메서드호출
+				//1,2�뵒鍮꾩뿰寃� 硫붿꽌�뱶�샇異�
 				con = getConnection();
-				//num 게시판 글번호 구하기
-				//sql 함수 최대값 구하기 max()
+				//num 寃뚯떆�뙋 湲�踰덊샇 援ы븯湲�
+				//sql �븿�닔 理쒕�媛� 援ы븯湲� max()
 				sql = "select * from home where home_num = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, home_num);
@@ -151,10 +151,10 @@ private Connection getConnection() throws Exception{
 					sc.setRestroom(rs.getInt(8));
 					sc.setIn_time(rs.getString(9));
 					sc.setOut_time(rs.getString(10));
-					sc.setPrice(rs.getInt(11));
-					sc.setStart_date(rs.getDate(12));
-					sc.setEnd_date(rs.getDate(13));
-					sc.setApply_date(rs.getDate(14));
+					sc.setApply_date(rs.getDate(11));
+					sc.setPrice(rs.getInt(12));
+					sc.setStart_date(rs.getDate(13));
+					sc.setEnd_date(rs.getDate(14));
 		}
 			}catch (Exception e){
 				e.printStackTrace();
@@ -167,7 +167,7 @@ private Connection getConnection() throws Exception{
 		}
 
 
-}//클래스
+}//�겢�옒�뒪
 
 
 

@@ -23,8 +23,6 @@ public class HostRoomListAction implements Action{
 		
 		List hostHome=hdao.getHostHomes(host_email);
 		
-		System.out.println(host_email);
-		
 		request.setAttribute("hostHome", hostHome);
 		
 		ActionForward forward=new ActionForward();
